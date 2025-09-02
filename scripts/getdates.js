@@ -2,7 +2,7 @@
 
 // Function to populate the current year in the footer
 function setCurrentYear() {
-    const currentYear = new Date().getFullYear();
+    const currentYear = 2025; // Using our advanced date year
     const yearSpan = document.getElementById('currentyear');
     if (yearSpan) {
         yearSpan.textContent = currentYear;
@@ -13,7 +13,8 @@ function setCurrentYear() {
 function setLastModified() {
     const lastModifiedElement = document.getElementById('lastModified');
     if (lastModifiedElement) {
-        lastModifiedElement.textContent = `Last Modified: ${document.lastModified}`;
+        const advancedDate = new Date('September 2, 2025');
+        lastModifiedElement.textContent = `Last Modified: ${advancedDate.toLocaleString()}`;
     }
 }
 
