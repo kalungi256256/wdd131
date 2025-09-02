@@ -121,9 +121,6 @@ main {
     max-width: 200px;
     padding: 10px;
     justify-content: center;
-    &:hover {
-        transform: scale(1.07);
-    }
     margin: 1rem 0;
     box-shadow: 0 3px 15px rgba(0,0,0,0.1);
     object-fit: cover;
