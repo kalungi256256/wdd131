@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Album</title>
+    <meta name="description" content="A responsive temple album showcasing beautiful LDS temples from around the world">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/temples.css">
+    <script src="scripts/temples.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Temple Album</h1>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <nav id="navigation">
+            <a href="#" data-filter="all">Home</a>
+            <a href="#" data-filter="old">Old</a>
+            <a href="#" data-filter="new">New</a>
+            <a href="#" data-filter="large">Large</a>
+            <a href="#" data-filter="small">Small</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Sacred Temples Around the World</h1>
+        
+        <div class="temple-grid" id="templeGrid">
+            <figure data-category="old large">
+                  <img src="images/salt_like.jpg" alt="salt lake temple">
+                <figcaption>Salt Lake Temple</figcaption>
+            </figure>
+            
+            <figure data-category="new small">
+                <img src="images/provo_city_temple.jpg" alt="Provo City Center Temple">
+                <figcaption>Provo City Center Temple</figcaption>
+            </figure>
+            
+            <figure data-category="old large">
+                <img src="images/manti-temple.jpg" alt="Manti Temple">
+                <figcaption>Manti Temple</figcaption>
+            </figure>
+            
+            <figure data-category="new large">
+                <img src="images/Draper Temple.jpg" alt="">
+                <figcaption>Draper Temple</figcaption>
+            </figure>
+            
+            <figure data-category="old small">
+                <img src="images/logan-temple.jpg" alt="Logan Temple">
+            <figcaption>Logan Temple</figcaption>
+            </figure>
+            
+            <figure data-category="new small">
+                <img src="images/Payson_temple.jpg" alt="Pasyson Temple">
+                <figcaption>Payson Temple</figcaption>
+            </figure>
+            
+            <figure data-category="old large">
+                <img src="images/St. George Temple.jpg" alt="st. george temple">
+                <figcaption>St. George Temple</figcaption>
+            </figure>
+            
+            <figure data-category="new large">
+                <img src="images/Oquirrh Mountain Temple.jpg" alt="Oquirrh Mountain Temple">
+                <figcaption>Oquirrh Mountain Temple</figcaption>
+            </figure>
+            
+            <figure data-category="new small">
+                <img src="images/Cedar City Temple.jpg" alt="Cidar City Temple">
+                <figcaption>Cedar City Temple</figcaption>
+            </figure>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Temple Album</p>
+        <p>Last Modified: <span id="lastModified"></span></p>
+    </footer>      
+</body>
+</html>
