@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kalungi Isaac">
+    <meta name="description" content="A travel guide to Uganda showcasing attractions, culture, and beautiful places to visit.">
+    <meta name="keywords" content="Uganda, Visit Uganda, Travel Africa, Tourism, Safaris">
+    <title>Visit Uganda</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/plac.css">
+    <script src="scripts/place.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <picture>
+            <!-- Hero image for mobile view -->
+            <source media="(max-width: 600px)" srcset="uganda.png">
+            <!-- Hero image for wider view -->
+            <source media="(min-width: 601px)" srcset="" type="image/webp">
+            <img src="images/uganda.png" alt="Lush landscape of Uganda" class="hero-img">
+        </picture>
+        <div class="hero-text">
+            <h1>Uganda</h1>
+            <p>The Pearl of Africa</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="info-section">
+            <h2>About</h2>
+            <p>Uganda, known as the "Pearl of Africa," is celebrated for its lush landscapes, abundant wildlife, and welcoming people. It is home to half of the world's mountain gorillas, found in Bwindi Impenetrable National Park. The country is also the source of the Nile River and features diverse ecosystems, from the snow-capped Rwenzori Mountains to the expansive Lake Victoria.</p>
+        </section>
+
+        <section class="data-section">
+            <div class="card">
+                <h2>Weather</h2>
+                <div class="weather-icon-container">
+                    
+                    <img src="" alt="Sunny weather icon" class="weather-icon-mobile">
+                </div>
+                <p>
+                    Temperature: <span id="temperature">25</span>°C
+                </p>
+                <p>
+                    Wind Speed: <span id="windspeed">3</span> km/h
+                </p>
+                <p>
+                    Wind Chill: <span id="windchill"></span>
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Attractions</h2>
+                <ul>
+                    <li>Bwindi Impenetrable National Park</li>
+                    <li>Source of the Nile</li>
+                    <li>Murchison Falls National Park</li>
+                    <li>Queen Elizabeth National Park</li>
+                    <li>Ssese Islands</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Demographics</h2>
+                <ul>
+                    <li>Population: ~46 million</li>
+                    <li>Capital: Kampala</li>
+                    <li>Official Languages: English, Swahili</li>
+                    <li>Currency: Ugandan Shilling (UGX)</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© <span id="currentyear"></span> - Visit Uganda</p>
+        <p>Last Modified: <span id="lastmodified"></span></p>
+    </footer>
+
+</body>
+</html>

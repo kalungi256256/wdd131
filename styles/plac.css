@@ -1,0 +1,153 @@
+:root {
+    --black-color: #000000;
+    --yellow-color: #FCD116; /* Yellow from Ugandan flag */
+    --red-color: #D21034; /* Red from Ugandan flag */
+    --white-color: #FFFFFF;
+    --card-bg-color: #f7f7f7;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Base Styles and Universal Box Model */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: var(--white-color);
+    color: var(--black-color);
+}
+
+/* Header and Hero Image */
+header {
+    position: relative;
+    width: 100%;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Main Content Layout and Card Styles */
+main {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-section {
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--black-color);
+    margin-bottom: 2rem;
+}
+.background-stars {
+    /* Dim the background image by layering a semi-transparent black gradient
+       over the image; this preserves text and other child content brightness */
+    background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('../images/stars.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+}
+
+.info-section p {
+    font-size: 1.1rem;
+}
+
+.data-section {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card h2 {
+    color: var(--black-color);
+    margin-bottom: 1rem;
+}
+
+.weather-icon-mobile {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.card li {
+    background-color: var(--white-color);
+    border: 1px solid #eee;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 1rem;
+}
+
+/* --------------------------------- */
+/* Media Queries for Responsive Design */
+/* --------------------------------- */
+/* Mobile View (default layout is mobile-first) */
+
+/* Wider View (e.g., tablets and desktops) */
+@media (min-width: 601px) {
+    .hero-text h1 {
+        font-size: 5rem;
+    }
+
+    .data-section {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    /* Hide SVG in wider view */
+    .weather-icon-mobile {
+        display: none;
+    }
+
+    /* Pseudo-element for wider view emoticon */
+    .card h2::after {
+        content: " ☀️";
+    }
+}
