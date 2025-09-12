@@ -1,0 +1,191 @@
+/* Media query for wider screens */
+@media screen and (min-width: 769px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    header h1 {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    nav ul {
+        justify-content: center;
+    }
+    
+    main .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    #intro {
+        grid-column: 1 / -1;
+    }
+    
+    .weather-icon {
+        display: inline; /* Show emoticon in wider view */
+    }
+    
+    .svg-icon {
+        display: none; /* Hide SVG in wider view */
+    }
+}
+
+/* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    header h1 {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .weather-icon {
+        display: none; /* Hide emoticon in mobile view */
+    }
+    
+    .svg-icon {
+        display: block; /* Show SVG in mobile view */
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --text-color: #000;
+        --card-bg: #fff;
+    }
+    
+    .card {
+        border: 2px solid #000;
+    }
+}
+
+/* Print styles */
+@media print {
+    header, footer {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
+    
+    nav {
+        display: none;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}/* Media query for wider screens */
+@media screen and (min-width: 769px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    header h1 {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    nav ul {
+        justify-content: center;
+    }
+    
+    main .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    #intro {
+        grid-column: 1 / -1;
+    }
+    
+    .weather-icon {
+        display: inline; /* Show emoticon in wider view */
+    }
+    
+    .svg-icon {
+        display: none; /* Hide SVG in wider view */
+    }
+}
+
+/* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    header h1 {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .weather-icon {
+        display: none; /* Hide emoticon in mobile view */
+    }
+    
+    .svg-icon {
+        display: block; /* Show SVG in mobile view */
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --text-color: #000;
+        --card-bg: #fff;
+    }
+    
+    .card {
+        border: 2px solid #000;
+    }
+}
+
+/* Print styles */
+@media print {
+    header, footer {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
+    
+    nav {
+        display: none;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}

@@ -3,83 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Kalungi Isaac">
-    <meta name="description" content="A travel guide to Uganda showcasing attractions, culture, and beautiful places to visit.">
-    <meta name="keywords" content="Uganda, Visit Uganda, Travel Africa, Tourism, Safaris">
-    <title>Visit Uganda</title>
+    <title>Uganda - Pearl of Africa</title>
+    <meta name="description" content="Discover Uganda's incredible wildlife, stunning landscapes, and vibrant culture. From mountain gorillas to the source of the Nile, explore the Pearl of Africa.">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/plac.css">
-    <script src="scripts/place.js" defer></script>
+    <link rel="stylesheet" href="styles/responsive.css">
+    <script src="scripts/main.js" defer></script>
 </head>
-
 <body>
     <header>
-        <picture>
-            <!-- Hero image for mobile view -->
-            <source media="(max-width: 600px)" srcset="uganda.png">
-            <!-- Hero image for wider view -->
-            <source media="(min-width: 601px)" srcset="" type="image/webp">
-            <img src="images/uganda.png" alt="Lush landscape of Uganda" class="hero-img">
-        </picture>
-        <div class="hero-text">
-            <h1>Uganda</h1>
-            <p>The Pearl of Africa</p>
-        </div>
+        <h1>UGANDA</h1>
+        <p>The Pearl of Africa</p>
     </header>
 
     <main>
-        <section class="info-section">
-            <h2>About</h2>
-            <p>Uganda, known as the "Pearl of Africa," is celebrated for its lush landscapes, abundant wildlife, and welcoming people. It is home to half of the world's mountain gorillas, found in Bwindi Impenetrable National Park. The country is also the source of the Nile River and features diverse ecosystems, from the snow-capped Rwenzori Mountains to the expansive Lake Victoria.</p>
+        <!-- Hero Section -->
+        <section class="hero">
+            <picture>
+                <source media="(min-width: 800px)" srcset="images/bwindi.png" type="image/webp">
+                <img src="images/bwindi.png" alt="Mountain gorillas in Bwindi Impenetrable National Park, Uganda" loading="eager">
+            </picture>
         </section>
 
-        <section class="data-section">
-            <div class="card">
-                <h2>Weather</h2>
-                <div class="weather-icon-container">
-                    
-                    <img src="" alt="Sunny weather icon" class="weather-icon-mobile">
-                </div>
-                <p>
-                    Temperature: <span id="temperature">25</span>°C
-                </p>
-                <p>
-                    Wind Speed: <span id="windspeed">3</span> km/h
-                </p>
-                <p>
-                    Wind Chill: <span id="windchill"></span>
-                </p>
-            </div>
-
-            <div class="card">
-                <h2>Attractions</h2>
-                <ul>
-                    <li>Bwindi Impenetrable National Park</li>
-                    <li>Source of the Nile</li>
-                    <li>Murchison Falls National Park</li>
-                    <li>Queen Elizabeth National Park</li>
-                    <li>Ssese Islands</li>
-                </ul>
-            </div>
+        <!-- Introduction -->
+        <section class="introduction">
+            <h2>Welcome to Uganda</h2>
+            <p>Uganda, known as the "Pearl of Africa," is a landlocked country in East Africa renowned for its incredible biodiversity, stunning landscapes, and warm, welcoming people. From the snow-capped Rwenzori Mountains to the vast savannas of Queen Elizabeth National Park, Uganda offers some of Africa's most spectacular wildlife experiences.</p>
             
-            <div class="card">
-                <h2>Demographics</h2>
-                <ul>
-                    <li>Population: ~46 million</li>
-                    <li>Capital: Kampala</li>
-                    <li>Official Languages: English, Swahili</li>
-                    <li>Currency: Ugandan Shilling (UGX)</li>
-                </ul>
+            <p>Home to more than half of the world's remaining mountain gorillas, Uganda provides unparalleled opportunities for wildlife enthusiasts. The country is also the source of the mighty River Nile, offering adventure sports, cultural experiences, and breathtaking natural beauty that captivates visitors from around the globe.</p>
+        </section>
+
+        <!-- Weather Section -->
+        <section class="weather">
+            <h2>Weather</h2>
+            <div class="weather-info">
+                <div class="weather-item">
+                    <span class="label">Temperature:</span>
+                    <span class="value">24°C</span>
+                </div>
+                <div class="weather-item">
+                    <span class="label">Conditions:</span>
+                    <span class="value">Partly Sunny</span>
+                </div>
+                <div class="weather-item">
+                    <span class="label">Wind Speed:</span>
+                    <span class="value">8 km/h</span>
+                </div>
+                <div class="weather-item">
+                    <span class="label">Wind Chill:</span>
+                    <span class="value" id="windchill">Calculating...</span>
+                </div>
+            </div>
+            <div class="weather-icon-mobile">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                    <path d="m12 1-1 6m1-6 1 6m-1-6V1m0 22v-6m0 6-1-6m1 6 1-6M1 12l6-1m-6 1 6 1M1 12H1m22 0h-6m6 0-6-1m6 1-6 1M4.22 4.22l4.24 4.24m-4.24-4.24L4.22 4.22m15.56 15.56-4.24-4.24m4.24 4.24-.00-.00m-15.56-15.56 4.24 4.24m-4.24-4.24.00-.00m15.56 15.56-4.24-4.24" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Attractions Section -->
+        <section class="attractions">
+            <h2>Top Attractions</h2>
+            <div class="attractions-grid">
+                <div class="attraction-item">
+                    <h3>Bwindi Impenetrable National Park</h3>
+                    <p>Home to approximately half of the world's mountain gorillas, this UNESCO World Heritage site offers unforgettable gorilla trekking experiences through ancient rainforest.</p>
+                </div>
+                <div class="attraction-item">
+                    <h3>Source of the Nile</h3>
+                    <p>Witness where the mighty River Nile begins its 6,650-kilometer journey to the Mediterranean Sea at Jinja, offering white-water rafting and scenic boat cruises.</p>
+                </div>
+                <div class="attraction-item">
+                    <h3>Queen Elizabeth National Park</h3>
+                    <p>Uganda's most popular savanna park, famous for tree-climbing lions, boat safaris on the Kazinga Channel, and diverse wildlife including elephants, hippos, and crocodiles.</p>
+                </div>
+                <div class="attraction-item">
+                    <h3>Rwenzori Mountains</h3>
+                    <p>The legendary "Mountains of the Moon" offer challenging treks through unique alpine vegetation zones, glacial lakes, and snow-capped peaks reaching over 5,000 meters.</p>
+                </div>
+                <div class="attraction-item">
+                    <h3>Lake Victoria</h3>
+                    <p>Africa's largest lake provides fishing experiences, island hopping adventures, and beautiful sunset views. The Ssese Islands offer pristine beaches and relaxation.</p>
+                </div>
+                <div class="attraction-item">
+                    <h3>Murchison Falls National Park</h3>
+                    <p>Witness the dramatic Murchison Falls where the Nile forces through a narrow gorge, and enjoy game drives featuring the Big Five animals in Uganda's largest national park.</p>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>© <span id="currentyear"></span> - Visit Uganda</p>
-        <p>Last Modified: <span id="lastmodified"></span></p>
+        <p>&copy; <span id="currentYear"></span> Uganda Tourism. All rights reserved.</p>
+        <p>Last Modified: <span id="lastModified"></span></p>
     </footer>
 
 </body>
