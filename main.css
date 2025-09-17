@@ -67,7 +67,7 @@
             background: white;
             padding: var(--spacing-medium);
             margin: var(--spacing-medium) 0;
-            border-radius: var(--border-radius);
+            border-radius: 5px;
             box-shadow: 0 2px 8px var(--shadow);
         }
 
@@ -162,7 +162,7 @@
         .attraction-item {
             padding: var(--spacing-small);
             background: var(--background-light);
-            border-radius: var(--border-radius);
+            border-radius: 10px;
             border-left: 4px solid var(--secondary-color);
         }
 
