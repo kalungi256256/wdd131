@@ -1,7 +1,7 @@
 :root {
-            --primary-color: #000000;      /* Black from Uganda flag */
-            --secondary-color: #FCDC04;    /* Yellow from Uganda flag */
-            --accent-color: #CE1126;       /* Red from Uganda flag */
+            --primary-color: #000000;      
+            --secondary-color: #FCDC04;   
+            --accent-color: #CE1126;      
             --text-dark: #333333;
             --text-light: #ffffff;
             --background-light: #f8f9fa;
@@ -26,7 +26,7 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            background: linear-gradient(var(--primary-color)3rem,var(--secondary-color)6rem, var(--accent-color)8rem);
             color: var(--text-light);
             text-align: center;
             padding: var(--spacing-medium);
@@ -45,8 +45,9 @@
 
         header p {
             font-size: 1.2rem;
-            font-style: italic;
+            font-style: oblique;
             opacity: 0.9;
+            lighting-color: white;
         }
 
         main {
@@ -64,7 +65,7 @@
 
         .hero img {
             width: 100%;
-            height: 300px;
+            height: 400px;
             object-fit: cover;
             display: block;
         }
@@ -210,7 +211,7 @@
             }
 
             .weather h2::after {
-                content: "☀️";
+                content: "☀️🌍";
                 position: absolute;
                 right: 0;
                 top: 0;

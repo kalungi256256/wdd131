@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Uganda - The Pearl of Africa</title>
+    <meta name="description" content="Discover Uganda's rich culture, diverse wildlife, and stunning landscapes">
+    <meta name="author" content="Kalungi Isaac">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    
+    <!-- JavaScript File -->
+    <script src="scripts/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Explore Uganda</h1>
+            <nav>
+                <ul>
+                    <li><a href="#intro">Introduction</a></li>
+                    <li><a href="#nature">Nature</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#weather">Weather</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="intro" class="card">
+            <h2>The Pearl of Africa</h2>
+            <div class="hero-container">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="images/uganda-hero-mobile.webp">
+                    <source media="(min-width: 769px)" srcset="images/uganda-hero-desktop.webp">
+                    <img src="images/uganda-hero-desktop.webp" alt="Beautiful landscape of Uganda with mountains and lake" loading="lazy">
+                </picture>
+            </div>
+            <p>Uganda is a landlocked country in East Africa known as the "Pearl of Africa" for its incredible natural beauty. From the source of the Nile to mountain gorillas, Uganda offers unique experiences for travelers.</p>
+        </section>
+
+        <section id="nature" class="card">
+            <h2>Natural Wonders</h2>
+            <figure>
+                <img src="images/nature.webp" alt="Mountain gorillas in Uganda's rainforest" loading="lazy">
+                <figcaption>Mountain gorillas in Bwindi Impenetrable Forest</figcaption>
+            </figure>
+            <p>Uganda is home to diverse ecosystems including rainforests, savannas, and lakes. It hosts half of the world's remaining mountain gorillas and over 1,000 bird species.</p>
+        </section>
+
+        <section id="culture" class="card">
+            <h2>Rich Culture</h2>
+            <figure>
+                <img src="images/culture.webp" alt="Traditional Ugandan dancers" loading="lazy">
+                <figcaption>Traditional dancers from different Ugandan tribes</figcaption>
+            </figure>
+            <p>Uganda has more than 50 indigenous tribes, each with unique traditions, music, and dances. The country is known for its friendly people and vibrant cultural heritage.</p>
+        </section>
+
+        <section id="weather" class="card">
+            <h2>Weather <span class="weather-icon">⛅</span></h2>
+            <div class="weather-info">
+                <p>Temperature: <span id="temperature">22</span>°C</p>
+                <p>Conditions: Partly Cloudy</p>
+                <p>Wind Speed: <span id="wind-speed">5</span> km/h</p>
+                <p>Wind Chill: <span id="wind-chill">N/A</span></p>
+            </div>
+            <div class="svg-icon">
+                <img src="images/uganda-flag.svg" alt="Flag of Uganda" loading="lazy">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> | Explore Uganda</p>
+            <p>Last Modified: <span id="last-modified"></span></p>
+        </div>
+    </footer>
+</body>
+</html>
