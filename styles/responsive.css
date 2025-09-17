@@ -1,191 +1,55 @@
-/* Media query for wider screens */
-@media screen and (min-width: 769px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
+@media (min-width: 800px) {
     header h1 {
-        margin-bottom: var(--spacing-sm);
+        font-size: 3.5rem;
     }
-    
-    nav ul {
-        justify-content: center;
-    }
-    
-    main .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--spacing-lg);
-    }
-    
-    #intro {
-        grid-column: 1 / -1;
-    }
-    
-    .weather-icon {
-        display: inline; /* Show emoticon in wider view */
-    }
-    
-    .svg-icon {
-        display: none; /* Hide SVG in wider view */
-    }
-}
 
-/* Media query for mobile screens */
-@media screen and (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
+    header p {
+        font-size: 1.5rem;
     }
-    
-    header h1 {
-        margin-bottom: var(--spacing-sm);
-    }
-    
-    nav ul {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-    
-    .weather-icon {
-        display: none; /* Hide emoticon in mobile view */
-    }
-    
-    .svg-icon {
-        display: block; /* Show SVG in mobile view */
-    }
-}
 
-/* Accessibility improvements */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+    .weather h2::after {
+        content: "☀️";
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 2rem;
+        line-height: 1;
     }
-}
 
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-    :root {
-        --text-color: #000;
-        --card-bg: #fff;
-    }
-    
-    .card {
-        border: 2px solid #000;
-    }
-}
-
-/* Print styles */
-@media print {
-    header, footer {
-        background-color: #fff !important;
-        color: #000 !important;
-    }
-    
-    nav {
+    .weather-icon-mobile {
         display: none;
     }
-    
-    .card {
-        box-shadow: none;
-        border: 1px solid #000;
+
+    .weather-info {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-small);
     }
-}/* Media query for wider screens */
-@media screen and (min-width: 769px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
+
+    .attractions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-medium);
     }
-    
-    header h1 {
-        margin-bottom: var(--spacing-sm);
+
+    .introduction {
+        padding: var(--spacing-large);
     }
-    
-    nav ul {
-        justify-content: center;
+
+    .weather {
+        padding: var(--spacing-large);
     }
-    
-    main .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--spacing-lg);
+
+    .attractions {
+        padding: var(--spacing-large);
     }
-    
-    #intro {
-        grid-column: 1 / -1;
-    }
-    
-    .weather-icon {
-        display: inline; /* Show emoticon in wider view */
-    }
-    
-    .svg-icon {
-        display: none; /* Hide SVG in wider view */
+
+    .introduction p,
+    .attraction-item p {
+        font-size: 1.15rem;
     }
 }
 
-/* Media query for mobile screens */
-@media screen and (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    header h1 {
-        margin-bottom: var(--spacing-sm);
-    }
-    
-    nav ul {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-    
-    .weather-icon {
-        display: none; /* Hide emoticon in mobile view */
-    }
-    
-    .svg-icon {
-        display: block; /* Show SVG in mobile view */
-    }
-}
-
-/* Accessibility improvements */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-    :root {
-        --text-color: #000;
-        --card-bg: #fff;
-    }
-    
-    .card {
-        border: 2px solid #000;
-    }
-}
-
-/* Print styles */
-@media print {
-    header, footer {
-        background-color: #fff !important;
-        color: #000 !important;
-    }
-    
-    nav {
-        display: none;
-    }
-    
-    .card {
-        box-shadow: none;
-        border: 1px solid #000;
+@media (min-width: 1200px) {
+    .attractions-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
