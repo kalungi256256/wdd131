@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Temple Picture Album</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/temples-large.css">
+    <link rel="stylesheet" href="styles/temples.css">
+    <script src="scripts/temples.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🏛️ Enhanced Temple Picture Album</h1>
+            <nav>
+                <ul>
+                    <li><button id="home" class="filter-btn active">Home</button></li>
+                    <li><button id="old" class="filter-btn">Old</button></li>
+                    <li><button id="new" class="filter-btn">New</button></li>
+                    <li><button id="large" class="filter-btn">Large</button></li>
+                    <li><button id="small" class="filter-btn">Small</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="temple-grid" class="temple-grid">
+                <!-- Temple cards will be dynamically generated here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentyear"></span>🏛️ Enhanced Temple Album🏛️</p>
+            <p>Last Modified: <span id="lastmodified"></span></p>
+            <p>Created by: Kalungi Isaac</p>
+        </div>
+    </footer>
+
+   
+</body>
+</html>
