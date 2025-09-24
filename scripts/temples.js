@@ -1,4 +1,5 @@
-// Temple data array with original 7 temples plus 3 additional ones
+
+        // Temple data array
         const temples = [
             {
                 templeName: "Aba Nigeria",
@@ -49,93 +50,162 @@
                 area: 116642,
                 imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
             },
-            // Additional temples (3 more as required)
+            // Additional temples added 
             {
-                templeName: "Salt Lake Temple",
+                templeName: "Salt Lake",
                 location: "Salt Lake City, Utah, United States",
                 dedicated: "1893, April, 6",
                 area: 253015,
-                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/2018/400x250/slctemple7.jpg"
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/400x250/salt-lake-temple-37762.jpg"
             },
             {
-                templeName: "Tokyo Japan",
-                location: "Tokyo, Japan",
-                dedicated: "1980, October, 27",
-                area: 53997,
-                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/tokyo-japan/400x250/tokyo_japan_temple-exterior-13.jpeg"
+                templeName: "San Diego California",
+                location: "San Diego, California, United States",
+                dedicated: "1993, April, 25",
+                area: 72000,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/san-diego-california/400x250/san-diego-temple-765109-wallpaper.jpg"
             },
             {
-                templeName: "Provo City Center",
-                location: "Provo, Utah, United States",
-                dedicated: "2016, March, 20",
-                area: 85084,
-                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/provo-city-center/400x250/provo-city-center-temple-1572517-wallpaper.jpg"
+                templeName: "Rome Italy",
+                location: "Rome, Italy",
+                dedicated: "2019, March, 10",
+                area: 40000,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/rome-italy/2019/400x250/1-Rome-Temple-2160936.jpg"
             }
         ];
 
         // Function to create temple card HTML
         function createTempleCard(temple) {
             return `
-                <div class="temple-card">
-                    <img src="${temple.imageUrl}" alt="${temple.templeName}" loading="lazy">
-                    <div class="temple-info">
-                        <h3>${temple.templeName}</h3>
-                        <p><strong>Location:</strong> ${temple.location}</p>
-                        <p><strong>Dedicated:</strong> ${temple.dedicated}</p>
-                        <p><strong>Area:</strong> ${temple.area.toLocaleString()} sq ft</p>
+                <div class="temple-card fade-in">
+                    <img src="${temple.imageUrl}" alt="${temple.templeName} Temple" loading="lazy">
+                    <div class="card-content">
+                        <h3 class="temple-name">${temple.templeName}</h3>
+                        <div class="temple-info">
+                            <div class="info-item">
+                                <span class="info-label">Location:</span>
+                                <span>${temple.location}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Dedicated:</span>
+                                <span>${temple.dedicated}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label"> Size:</span>
+                                <span>${temple.area.toLocaleString()} sq ft</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
         }
 
-        // Function to display temples
-        function displayTemples(templeList) {
-            const grid = document.getElementById('temple-grid');
-            grid.innerHTML = templeList.map(createTempleCard).join('');
+        // Function to render temples
+        function renderTemples(templesToShow) {
+            const gallery = document.getElementById('temple-gallery');
+            gallery.innerHTML = templesToShow.map(temple => createTempleCard(temple)).join('');
         }
 
-        // Function to get dedication year
-        function getDedicationYear(dedicatedString) {
-            return parseInt(dedicatedString.split(',')[0]);
+        // Function to get dedication year from date string
+        function getDedicationYear(dateString) {
+            return parseInt(dateString.split(',')[0]);
         }
 
         // Filter functions
-        const filters = {
-            home: () => temples,
-            old: () => temples.filter(temple => getDedicationYear(temple.dedicated) < 1900),
-            new: () => temples.filter(temple => getDedicationYear(temple.dedicated) > 2000),
-            large: () => temples.filter(temple => temple.area > 90000),
-            small: () => temples.filter(temple => temple.area < 10000)
-        };
+        function filterOld() {
+            return temples.filter(temple => getDedicationYear(temple.dedicated) < 1900);
+        }
 
-        // Event listeners for filter buttons
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                // Display filtered temples
-                const filteredTemples = filters[this.id]();
-                displayTemples(filteredTemples);
-            });
-        });
+        function filterNew() {
+            return temples.filter(temple => getDedicationYear(temple.dedicated) > 2000);
+        }
 
-        // Footer date functions
-        function updateFooter() {
-            const currentYear = new Date().getFullYear();
-            const lastModified = document.lastModified;
+        function filterLarge() {
+            return temples.filter(temple => temple.area > 90000);
+        }
+
+        function filterSmall() {
+            return temples.filter(temple => temple.area < 10000);
+        }
+
+        // Event listeners for navigation buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('nav button');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mainNav = document.getElementById('main-nav');
             
-            document.getElementById('currentyear').textContent = currentYear;
-            document.getElementById('lastmodified').textContent = lastModified;
-        }
-
-        // Initialize the page
-        function init() {
-            displayTemples(temples); // Show all temples initially
-            updateFooter();
-        }
-
-        // Run when DOM is loaded
-        document.addEventListener('DOMContentLoaded', init);
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('show');
+                // Change hamburger icon to X when open
+                if (mainNav.classList.contains('show')) {
+                    this.innerHTML = '✕';
+                } else {
+                    this.innerHTML = '☰';
+                }
+            });
+            
+            // Close mobile menu when a nav button is clicked
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Close mobile menu on small screens
+                    if (window.innerWidth <= 768) {
+                        mainNav.classList.remove('show');
+                        mobileMenuBtn.innerHTML = '☰';
+                    }
+                    
+                    // Filter temples based on button clicked
+                    let filteredTemples;
+                    switch(this.id) {
+                        case 'old':
+                            filteredTemples = filterOld();
+                            break;
+                        case 'new':
+                            filteredTemples = filterNew();
+                            break;
+                        case 'large':
+                            filteredTemples = filterLarge();
+                            break;
+                        case 'small':
+                            filteredTemples = filterSmall();
+                            break;
+                        default:
+                            filteredTemples = temples;
+                    }
+                    
+                    renderTemples(filteredTemples);
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768 && 
+                    !mainNav.contains(e.target) && 
+                    !mobileMenuBtn.contains(e.target) && 
+                    mainNav.classList.contains('show')) {
+                    mainNav.classList.remove('show');
+                    mobileMenuBtn.innerHTML = '☰';
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    mainNav.classList.remove('show');
+                    mobileMenuBtn.innerHTML = '☰';
+                }
+            });
+            
+            // Initial render - show all temples
+            renderTemples(temples);
+            
+            // Set footer content
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+            document.getElementById('last-modified').textContent = document.lastModified;
+        });
+    

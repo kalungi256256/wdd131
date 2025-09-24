@@ -3,44 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Temple Picture Album</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles/temples-large.css">
+    <title>Filtered Temples</title>
+    <meta name="description" content="Explore temples of The Church of Jesus Christ of Latter-day Saints with dynamic filtering options">
     <link rel="stylesheet" href="styles/temples.css">
-    <script src="scripts/temples.js" defer></script>
+    <script src="scripts/temples.js"></script>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>🏛️ Enhanced Temple Picture Album</h1>
-            <nav>
+        <div class="header-content">
+            <div class="logo">⛪ Sacred Temples</div>
+            <button class="mobile-menu" id="mobile-menu-btn">☰</button>
+            <nav id="main-nav">
                 <ul>
-                    <li><button id="home" class="filter-btn active">Home</button></li>
-                    <li><button id="old" class="filter-btn">Old</button></li>
-                    <li><button id="new" class="filter-btn">New</button></li>
-                    <li><button id="large" class="filter-btn">Large</button></li>
-                    <li><button id="small" class="filter-btn">Small</button></li>
+                    <li><button id="home" class="active">Home</button></li>
+                    <li><button id="old">Old</button></li>
+                    <li><button id="new">New</button></li>
+                    <li><button id="large">Large</button></li>
+                    <li><button id="small">Small</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <div class="container">
-            <div id="temple-grid" class="temple-grid">
-                <!-- Temple cards will be dynamically generated here -->
-            </div>
+        <h1 class="page-title">Temple Gallery</h1>
+        <h2 class="page-title">Temples</h2>
+        <div class="temple-gallery" id="temple-gallery">
+            <!-- Temple cards will be dynamically inserted here -->
         </div>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; <span id="currentyear"></span>🏛️ Enhanced Temple Album🏛️</p>
-            <p>Last Modified: <span id="lastmodified"></span></p>
-            <p>Created by: Kalungi Isaac</p>
+        <div class="footer-content">
+            <p>&copy; <span id="copyright-year"></span> Temple Gallery | Kalungi Isaac</p>
+            <p>Last Modified: <span id="last-modified"></span></p>
         </div>
     </footer>
 
-   
+    
 </body>
 </html>

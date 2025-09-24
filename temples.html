@@ -3,41 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temple Album</title>
-    <meta name="description" content="A responsive temple album showcasing beautiful LDS temples from around the world">
-    <meta name="author" content="Kalungi Isaac">
-    <meta name="keywords" content="LDS temples, temple album, church, sacred architecture, temple photography">
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:title" content="Temple Album">
-    <meta property="og:description" content="A responsive temple album showcasing LDS temples around the world.">
-    <meta property="og:image" content="images/salt-lake.jpg">
-    <meta property="og:type" content="website">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Temple Album">
-    <meta name="twitter:description" content="Explore beautiful LDS temples from around the world.">
-    <meta name="twitter:image" content="images/salt-lake.jpg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/temples.css">
-    <link rel="stylesheet" href="styles/temples-large.css">
-    <script src="scripts/temples.js" defer></script>
+    <title>Filtered Temples</title>
+    <meta name="description" content="Explore temples of The Church of Jesus Christ of Latter-day Saints with dynamic filtering options">
+    <link rel="stylesheet" href="styles/temples1.css">
+      <script src="scripts/temples1.js"></script>
 </head>
-
 <body>
     <header>
-        <h1>Temple Album</h1>
-        <button class="menu-toggle" id="menuToggle">☰</button>
-        <nav id="navigation">
-            <a href="#" data-filter="all">Home</a>
-            <a href="#" data-filter="old">Old</a>
-            <a href="#" data-filter="new">New</a>
-            <a href="#" data-filter="large">Large</a>
-            <a href="#" data-filter="small">Small</a>
-        </nav>
+        <div class="header-content">
+            <div class="logo">⛪ Sacred Temples</div>
+            <button class="mobile-menu" id="mobile-menu-btn">☰</button>
+            <nav id="main-nav">
+                <ul>
+                    <li><button id="home" class="active">Home</button></li>
+                    <li><button id="old">Old</button></li>
+                    <li><button id="new">New</button></li>
+                    <li><button id="large">Large</button></li>
+                    <li><button id="small">Small</button></li>
+                </ul>
+            </nav>
+        </div>
     </header>
             
     <main>
@@ -60,7 +45,7 @@
             </figure>
             
             <figure data-category="new large">
-                <img src="../images/draper-temple.jpg" alt="Draper Temple">
+                <img src="images/draper-temple.jpg" alt="Draper Temple">
                 <figcaption>Draper Temple</figcaption>
             </figure>
             
@@ -75,25 +60,28 @@
             </figure>
             
             <figure data-category="old large">
-                <img src="../images/st.george-temple.jpg" alt="St. George Temple">
+                <img src="images/st.george-temple.jpg" alt="St. George Temple">
                 <figcaption>St. George Temple</figcaption>
             </figure>
             
             <figure data-category="new large">
-                <img src="../images/oquirrh-mountain-temple.jpg" alt="Oquirrh Mountain Temple">
+                <img src="images/oquirrh-mountain-temple.jpg" alt="Oquirrh Mountain Temple">
                 <figcaption>Oquirrh Mountain Temple</figcaption>
             </figure>
             
             <figure data-category="new small">
-                <img src="../images/cedar-city-temple.jpg" alt="Cedar City Temple">
+                <img src="images/cedar-city-temple.jpg" alt="Cedar City Temple">
                 <figcaption>Cedar City Temple</figcaption>
             </figure>
         </div>
-    </main>
+        </main>
+    
 
     <footer>
-        <p>&copy; <span id="currentYear"></span> Temple Album</p>
-        <p>Last Modified: <span id="lastModified"></span></p>
-    </footer>      
+        <div class="footer-content">
+            <p>&copy; <span id="copyright-year"></span> Temple Gallery | Student Name</p>
+            <p>Last Modified: <span id="last-modified"></span></p>
+        </div>
+    </footer>
 </body>
 </html>

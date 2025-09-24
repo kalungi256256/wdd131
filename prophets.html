@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latter-day Prophets Learning Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary: #004276;
+            --secondary: #c8102e;
+            --accent: #ffc72c;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #333333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+
+        .btn-accent:hover {
+            background-color: #ffb400;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 66, 118, 0.8), rgba(0, 66, 118, 0.9)), url('https://images.unsplash.com/photo-1582213782119-d0417f4736ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 10px auto;
+        }
+
+        /* Prophet Cards */
+        .prophets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .prophet-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .prophet-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .prophet-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .prophet-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .prophet-card:hover .prophet-img img {
+            transform: scale(1.05);
+        }
+
+        .prophet-info {
+            padding: 1.5rem;
+        }
+
+        .prophet-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .prophet-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .prophet-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background-color: #f0f4f8;
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-card {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .quiz-section h2 {
+            color: white;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: var(--radius);
+        }
+
+        .quiz-question {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-option {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .quiz-option:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .quiz-option.selected {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav li {
+                margin-left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-church fa-2x" style="color: var(--primary);"></i>
+                <h1>Latter-day Prophets Learning Hub</h1>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="temples.html">Home</a></li>
+                    <li><a href="#prophets">Prophets</a></li>
+                    <li><a href="#timeline">Timeline</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Discover the Prophets of the Restoration</h2>
+            <p>Learn about the men called by God to lead The Church of Jesus Christ of Latter-day Saints throughout history. Explore their lives, teachings, and contributions to the Restoration of the Gospel.</p>
+            <a href="#prophets" class="btn btn-accent">Explore Prophets</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Prophets Section -->
+        <section id="prophets">
+            <h2 class="section-title">Latter-day Prophets</h2>
+            <div class="prophets-grid">
+                <!-- Prophet cards will be dynamically generated with JavaScript -->
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline-section" id="timeline">
+            <div class="container">
+                <h2 class="section-title">Prophetic Timeline</h2>
+                <div class="timeline">
+                    <!-- Timeline items will be dynamically generated with JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources">
+            <h2 class="section-title">Learning Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Scriptures</h3>
+                    <p>Study the teachings of prophets found in the Standard Works.</p>
+                    <a href="#" class="btn">Explore</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Videos</h3>
+                    <p>Watch inspiring messages and biographies of latter-day prophets.</p>
+                    <a href="#" class="btn">Watch</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3>Gallery</h3>
+                    <p>View historical photos and artwork depicting the prophets.</p>
+                    <a href="#" class="btn">View</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Study Guides</h3>
+                    <p>Access study materials for deeper learning about prophetic teachings.</p>
+                    <a href="#" class="btn">Study</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section" id="quiz">
+            <div class="container">
+                <h2 class="section-title">Test Your Knowledge</h2>
+                <div class="quiz-container">
+                    <div class="quiz-question">
+                        <h3>Who was the first president of The Church of Jesus Christ of Latter-day Saints?</h3>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-correct="true">Joseph Smith</div>
+                        <div class="quiz-option">Brigham Young</div>
+                        <div class="quiz-option">John Taylor</div>
+                        <div class="quiz-option">Wilford Woodruff</div>
+                    </div>
+                    <button class="btn btn-accent" id="submit-quiz">Submit Answer</button>
+                    <div id="quiz-feedback" style="margin-top: 1rem; display: none;"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>The Latter-day Prophets Learning Hub is dedicated to providing accurate and inspiring information about the prophets of the Restoration.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#prophets">Prophets</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#quiz">Quiz</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@prophetshub.org</p>
+                    <p><i class="fas fa-phone"></i> (801) 555-1234</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Salt Lake City, UT</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Latter-day Prophets Learning Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Prophet data
+        const prophets = [
+            {
+                name: "Joseph Smith",
+                birthDeath: "1805-1844",
+                served: "1830-1844",
+                image: "https://assets.churchofjesuschrist.org/5a/08/5a08a6c6d32521db4d5baea5c8d3d5b0e0d2c5d5/joseph_smith_jr.jpeg",
+                keyEvents: ["First Vision", "Translation of the Book of Mormon", "Organization of the Church"]
+            },
+            {
+                name: "Brigham Young",
+                birthDeath: "1801-1877",
+                served: "1847-1877",
+                image: "https://assets.churchofjesuschrist.org/85/5f/855f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/brigham_young.jpeg",
+                keyEvents: ["Westward Migration", "Settlement of Utah", "Construction of Temples"]
+            },
+            {
+                name: "John Taylor",
+                birthDeath: "1808-1887",
+                served: "1880-1887",
+                image: "https://assets.churchofjesuschrist.org/e5/5f/e55f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/john_taylor.jpeg",
+                keyEvents: ["Underground Period", "Defense of Plural Marriage", "Church Publications"]
+            },
+            {
+                name: "Wilford Woodruff",
+                birthDeath: "1807-1898",
+                served: "1889-1898",
+                image: "https://assets.churchofjesuschrist.org/f5/5f/f55f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/wilford_woodruff.jpeg",
+                keyEvents: ["Manifesto", "Genealogical Society", "Utah Statehood"]
+            },
+            {
+                name: "Lorenzo Snow",
+                birthDeath: "1814-1901",
+                served: "1898-1901",
+                image: "https://assets.churchofjesuschrist.org/15/5f/155f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/lorenzo_snow.jpeg",
+                keyEvents: ["Tithing Revelation", "Church Financial Reform", "Missionary Work"]
+            },
+            {
+                name: "Joseph F. Smith",
+                birthDeath: "1838-1918",
+                served: "1901-1918",
+                image: "https://assets.churchofjesuschrist.org/25/5f/255f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/joseph_f_smith.jpeg",
+                keyEvents: ["Vision of the Redemption of the Dead", "World War I", "Church Education"]
+            },
+            {
+                name: "Heber J. Grant",
+                birthDeath: "1856-1945",
+                served: "1918-1945",
+                image: "https://assets.churchofjesuschrist.org/35/5f/355f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/heber_j_grant.jpeg",
+                keyEvents: ["Welfare Program", "World War II", "Emphasis on Word of Wisdom"]
+            },
+            {
+                name: "George Albert Smith",
+                birthDeath: "1870-1951",
+                served: "1945-1951",
+                image: "https://assets.churchofjesuschrist.org/45/5f/455f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/george_albert_smith.jpeg",
+                keyEvents: ["Post-war Reconstruction", "Emphasis on Love", "Church Humanitarian Efforts"]
+            },
+            {
+                name: "David O. McKay",
+                birthDeath: "1873-1970",
+                served: "1951-1970",
+                image: "https://assets.churchofjesuschrist.org/55/5f/555f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/david_o_mckay.jpeg",
+                keyEvents: ["Correlation Program", "Temple Building", "Worldwide Church Growth"]
+            },
+            {
+                name: "Joseph Fielding Smith",
+                birthDeath: "1876-1972",
+                served: "1970-1972",
+                image: "https://assets.churchofjesuschrist.org/65/5f/655f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/joseph_fielding_smith.jpeg",
+                keyEvents: ["Doctrinal Writings", "Scripture Publication", "Emphasis on Family History"]
+            },
+            {
+                name: "Harold B. Lee",
+                birthDeath: "1899-1973",
+                served: "1972-1973",
+                image: "https://assets.churchofjesuschrist.org/75/5f/755f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/harold_b_lee.jpeg",
+                keyEvents: ["Priesthood Correlation", "Welfare Services", "Emphasis on Revelation"]
+            },
+            {
+                name: "Spencer W. Kimball",
+                birthDeath: "1895-1985",
+                served: "1973-1985",
+                image: "https://assets.churchofjesuschrist.org/85/5f/855f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/spencer_w_kimball.jpeg",
+                keyEvents: ["Priesthood Revelation", "Temple Building Acceleration", "Lengthen Your Stride"]
+            },
+            {
+                name: "Ezra Taft Benson",
+                birthDeath: "1899-1994",
+                served: "1985-1994",
+                image: "https://assets.churchofjesuschrist.org/95/5f/955f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/ezra_taft_benson.jpeg",
+                keyEvents: ["Book of Mormon Emphasis", "Flood the Earth", "Warnings against Pride"]
+            },
+            {
+                name: "Howard W. Hunter",
+                birthDeath: "1907-1995",
+                served: "1994-1995",
+                image: "https://assets.churchofjesuschrist.org/a5/5f/a55f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/howard_w_hunter.jpeg",
+                keyEvents: ["Temple Worthiness", "Christ-centered Focus", "Unity and Love"]
+            },
+            {
+                name: "Gordon B. Hinckley",
+                birthDeath: "1910-2008",
+                served: "1995-2008",
+                image: "https://assets.churchofjesuschrist.org/b5/5f/b55f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/gordon_b_hinckley.jpeg",
+                keyEvents: ["Temple Building Program", "Perpetual Education Fund", "Media Outreach"]
+            },
+            {
+                name: "Thomas S. Monson",
+                birthDeath: "1927-2018",
+                served: "2008-2018",
+                image: "https://assets.churchofjesuschrist.org/c5/5f/c55f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/thomas_s_monson.jpeg",
+                keyEvents: ["Humanitarian Service", "Temple Announcements", "Storytelling Ministry"]
+            },
+            {
+                name: "Russell M. Nelson",
+                birthDeath: "1924-Present",
+                served: "2018-Present",
+                image: "https://assets.churchofjesuschrist.org/d5/5f/d55f5b7d65b5d61d5b5e5d5b5d5b5d5b5d5b5d5b/russell_m_nelson.jpeg",
+                keyEvents: ["Home-centered Church", "Temple Building", "Emphasis on Jesus Christ"]
+            }
+        ];
+
+        // Generate prophet cards
+        function generateProphetCards() {
+            const grid = document.querySelector('.prophets-grid');
+            
+            prophets.forEach(prophet => {
+                const card = document.createElement('div');
+                card.className = 'prophet-card';
+                
+                card.innerHTML = `
+                    <div class="prophet-img">
+                        <img src="${prophet.image}" alt="${prophet.name}">
+                    </div>
+                    <div class="prophet-info">
+                        <h3>${prophet.name}</h3>
+                        <p>President: ${prophet.served}</p>
+                        <p>Lifespan: ${prophet.birthDeath}</p>
+                        <div class="prophet-details">
+                            <span>Key Events:</span>
+                            <span>${prophet.keyEvents[0]}</span>
+                        </div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+
+        // Generate timeline
+        function generateTimeline() {
+            const timeline = document.querySelector('.timeline');
+            
+            prophets.forEach((prophet, index) => {
+                const item = document.createElement('div');
+                item.className = 'timeline-item';
+                
+                item.innerHTML = `
+                    <div class="timeline-content">
+                        <h3>${prophet.name}</h3>
+                        <p><strong>Served:</strong> ${prophet.served}</p>
+                        <p><strong>Key Event:</strong> ${prophet.keyEvents[0]}</p>
+                    </div>
+                `;
+                
+                timeline.appendChild(item);
+            });
+        }
+
+        // Quiz functionality
+        function setupQuiz() {
+            const options = document.querySelectorAll('.quiz-option');
+            const submitBtn = document.getElementById('submit-quiz');
+            const feedback = document.getElementById('quiz-feedback');
+            
+            let selectedOption = null;
+            
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Remove selected class from all options
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    option.classList.add('selected');
+                    selectedOption = option;
+                });
+            });
+            
+            submitBtn.addEventListener('click', () => {
+                if (!selectedOption) {
+                    feedback.textContent = 'Please select an answer.';
+                    feedback.style.display = 'block';
+                    return;
+                }
+                
+                const isCorrect = selectedOption.getAttribute('data-correct') === 'true';
+                
+                if (isCorrect) {
+                    feedback.innerHTML = '<i class="fas fa-check"></i> Correct! Joseph Smith was the first president of the Church.';
+                    feedback.style.color = 'var(--accent)';
+                } else {
+                    feedback.innerHTML = '<i class="fas fa-times"></i> Incorrect. Joseph Smith was the first president of the Church.';
+                    feedback.style.color = '#ff6b6b';
+                }
+                
+                feedback.style.display = 'block';
+            });
+        }
+
+        // Mobile menu functionality
+        function setupMobileMenu() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            
+            menuBtn.addEventListener('click', () => {
+                nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        nav.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            generateProphetCards();
+            generateTimeline();
+            setupQuiz();
+            setupMobileMenu();
+        });
+    </script>
+</body>
+</html>
