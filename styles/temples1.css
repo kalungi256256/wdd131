@@ -50,6 +50,9 @@ nav button {
     font-size: 1rem;
     transition: all 0.3s ease;
 }
+nav ul li a:hover {
+  background-color: #fcdc04; /* yellow hover */
+  color: #000;}
 
 nav button:hover,
 nav button.active {

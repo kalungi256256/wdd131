@@ -40,6 +40,7 @@ nav ul {
     gap: 20px;
 }
 
+/* Navigation buttons */
 nav button {
     background: transparent;
     color: white;
@@ -52,7 +53,30 @@ nav button {
 }
 
 nav button:hover,
+nav button:focus, /* Added for accessibility */
 nav button.active {
+    background: rgba(255,255,255,0.2);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+/* If you want to use anchor tags instead of buttons */
+nav a {
+    display: inline-block;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus, /* Added for accessibility */
+nav a.active {
     background: rgba(255,255,255,0.2);
     border-color: white;
     transform: translateY(-2px);
@@ -163,7 +187,8 @@ footer {
     transition: all 0.3s ease;
 }
 
-.mobile-menu:hover {
+.mobile-menu:hover,
+.mobile-menu:focus { /* Added for accessibility */
     background: rgba(255,255,255,0.2);
     transform: scale(1.05);
 }
@@ -204,7 +229,8 @@ footer {
         margin-top: 1rem;
     }
 
-    nav button {
+    nav button,
+    nav a {
         width: 100%;
         padding: 12px 16px;
         font-size: 1rem;
