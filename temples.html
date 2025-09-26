@@ -6,83 +6,39 @@
     <title>Filtered Temples</title>
     <meta name="description" content="Explore temples of The Church of Jesus Christ of Latter-day Saints with dynamic filtering options">
     <meta name="author" content="kalungi256256 (izokal91@gmail.com)">
-    <link rel="stylesheet" href="styles/temples1.css">
-    <script src="scripts/temples1.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/temples.css">
+    <script src="scripts/temples.js" defer></script>
 </head>
-
-
 <body>
     <header>
         <div class="header-content">
-            <div class="logo">⛪ Sacred Temples</div>
+            <div class="logo">🏛️ Sacred Temples 🏛️</div>
             <button class="mobile-menu" id="mobile-menu-btn">☰</button>
             <nav id="main-nav">
-                <ul>
-                    <li><button id="home" class="active">Home</button></li>
-                    <li><button id="old">Old</button></li>
-                    <li><button id="new">New</button></li>
-                    <li><button id="large">Large</button></li>
-                    <li><button id="small">Small</button></li>
-                </ul>
+                <a href="#" class="nav-link active" id="home">Home</a>
+                <a href="#" class="nav-link" id="old">Old</a>
+                <a href="#" class="nav-link" id="new">New</a>
+                <a href="#" class="nav-link" id="large">Large</a>
+                <a href="#" class="nav-link" id="small">Small</a>
             </nav>
         </div>
     </header>
-            
-    <main>
-          <h2>Temples</h2>
-        <div class="temple-grid" id="templeGrid">    
 
-            <figure data-category="old large">
-                <img src="images/salt-lake.jpg" alt="Salt Lake Temple">
-                <figcaption>Salt Lake Temple</figcaption>
-            </figure>
-           
-            <figure data-category="new small">
-                <img src="images/provo-city-temple.jpg" alt="Provo City Center Temple">
-                <figcaption>Provo City Center Temple</figcaption>
-            </figure>
-            
-            <figure data-category="old small">
-                <img src="images/manti-temple.jpg" alt="Manti Temple">
-                <figcaption>Manti Temple</figcaption>
-            </figure>
-            
-            <figure data-category="new large">
-                <img src="images/draper-temple.jpg" alt="Draper Temple">
-                <figcaption>Draper Temple</figcaption>
-            </figure>
-            
-            <figure data-category="old large">
-                <img src="images/logan-temple.jpg" alt="Logan Temple">
-                <figcaption>Logan Temple</figcaption>
-            </figure>
-            
-            <figure data-category="new small">
-                <img src="images/Payson-temple.jpg" alt="Payson Temple">
-                <figcaption>Payson Temple</figcaption>
-            </figure>
-            
-            <figure data-category="old large">
-                <img src="images/st.george-temple.jpg" alt="St. George Temple">
-                <figcaption>St. George Temple</figcaption>
-            </figure>
-            
-            <figure data-category="new large">
-                <img src="images/oquirrh-mountain-temple.jpg" alt="Oquirrh Mountain Temple">
-                <figcaption>Oquirrh Mountain Temple</figcaption>
-            </figure>
-            
-            <figure data-category="new small">
-                <img src="images/cedar-city-temple.jpg" alt="Cedar City Temple">
-                <figcaption>Cedar City Temple</figcaption>
-            </figure>
+    <main>
+        <h1 class="page-title">Temple Gallery</h1>
+        <h2 class="page-subtitle">Temples</h2>
+        <div class="temple-gallery" id="temple-gallery">
+            <!-- Temple cards will be dynamically inserted here -->
         </div>
-        </main>
-    
+    </main>
 
     <footer>
         <div class="footer-content">
-            <p>&copy; <span id="copyright-year"></span> Temple Gallery | Kulungi Isaac</p>
+            <p>&copy; <span id="copyright-year"></span> Temple Gallery | Kalungi Isaac</p>
             <p>Last Modified: <span id="last-modified"></span></p>
         </div>
     </footer>
