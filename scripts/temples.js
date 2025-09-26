@@ -139,7 +139,7 @@
                 mainNav.classList.toggle('show');
                 // Change hamburger icon to X when open
                 if (mainNav.classList.contains('show')) {
-                    this.innerHTML = '✕';
+                    this.innerHTML = 'Back';
                 } else {
                     this.innerHTML = '☰';
                 }
