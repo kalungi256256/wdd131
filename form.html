@@ -7,11 +7,16 @@
     <title>Product Review Form</title>
     <meta name="description" content="Submit your product review, share ratings, features, and experiences.">
     <meta name="author" content="Kalungi Isaac">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
-    
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="styles/form.css">
+
+    <!-- Script -->
     <script src="scripts/form.js" defer></script>
 </head>
 
@@ -25,6 +30,7 @@
         <div class="form-container">
             <form method="get" action="review.html" id="reviewForm">
 
+                <!-- Product Name -->
                 <div class="form-group">
                     <label for="productName" class="required">Product Name</label>
                     <select id="productName" name="productName" required>
@@ -32,6 +38,7 @@
                     </select>
                 </div>
 
+                <!-- Rating -->
                 <div class="form-group">
                     <label class="required">Overall Rating</label>
                     <div class="rating-group">
@@ -58,11 +65,13 @@
                     </div>
                 </div>
 
+                <!-- Date -->
                 <div class="form-group">
                     <label for="installDate" class="required">Date of Installation</label>
                     <input type="date" id="installDate" name="installDate" required>
                 </div>
 
+                <!-- Features -->
                 <div class="form-group">
                     <label>Useful Features (Check all that apply)</label>
                     <div class="checkbox-group">
@@ -93,17 +102,19 @@
                     </div>
                 </div>
 
+                <!-- Written Review -->
                 <div class="form-group">
                     <label for="writtenReview">Written Review</label>
-                    <textarea id="writtenReview" name="writtenReview"
-                        placeholder="Tell us about your experience with this product..."></textarea>
+                    <textarea id="writtenReview" name="writtenReview" placeholder="Tell us about your experience with this product..."></textarea>
                 </div>
 
+                <!-- User Name -->
                 <div class="form-group">
                     <label for="userName">Your Name</label>
                     <input type="text" id="userName" name="userName" placeholder="Enter your name (optional)">
                 </div>
 
+                <!-- Submit -->
                 <input type="submit" value="Submit" class="submit-btn">
 
             </form>
