@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Submitted - Thank You!</title>
+<link rel="stylesheet" href="styles/Review.css">
+<link rel="stylesheet" href="scripts/Review.js">
+<script src="scripts/Review.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="success-icon">😍</div>
+            <h1>Thank You!</h1>
+            <p>Your product review has been successfully submitted</p>
+        </div>
+
+        <div class="content">
+            <div class="review-info" id="reviewInfo">
+                <!-- Review information will be populated here by JavaScript -->
+            </div>
+
+            <div class="counter-section">
+                <h3>Review Counter</h3>
+                <div class="counter-number" id="reviewCounter">0</div>
+                <div class="counter-text">Total reviews completed</div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="form.html" class="btn btn-primary">Submit Another Review</a>
+                <button onclick="history.back()" class="btn btn-secondary">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="copyright-year"></span> Product Review | Kalungi Isaac</p>
+            <p>Last Modified: <span id="last-modified"></span></p>
+        </div>
+    </footer>
+
+  
+</body>
+
+</html>
