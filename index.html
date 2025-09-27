@@ -3,54 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 131 – Dynamic Web Fundamentals – Your Name</title>
-    <meta name="description" content="WDD 131 – Dynamic Web Fundamentals home page by Your Name featuring web development fundamentals and dynamic content">
-    <meta name="author" content="Your Name">
-    <link rel="stylesheet" href="styles/base.css">
+    <title>EcoTracker - Home | Sustainable Living Made Simple</title>
+    <meta name="description" content="EcoTracker helps you monitor and improve your environmental impact through carbon footprint tracking, eco-friendly tips, and sustainable living resources.">
+    <meta name="author" content="Kalungi Isaac">
+    <script src="scripts/main.js" defer></script>
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet">
-    <script src="scripts/getdates.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <span id="course-title">WDD 131 – Dynamic Web Fundamentals</span>
-        <nav>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-            <a href="https://byupw.instructure.com/" target="_blank">Canvas</a>
-            <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7" target="_blank">Scripture</a>
-            <a href="project/">Final Project</a>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    <span class="logo-icon">🌱</span>
+                    EcoTracker
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="calculator.html" class="nav-link">Carbon Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="tips.html" class="nav-link">Eco Tips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <button class="hamburger" aria-label="Toggle navigation menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
         </nav>
     </header>
 
     <main>
-        <h1>KALUNGI ISAAC</h1>
-        
-        <section class="card">
-            <h2>About Me</h2>
-            <img src="images/profile.jpg" alt="Profile photo of Your Name" width="200" height="250">
-            <p>Welcome to my WDD 131 course page! I'm excited to be learning dynamic web fundamentals and building my skills in HTML, CSS, and JavaScript. This course is helping me understand how to create responsive, accessible, and interactive web experiences.</p>
-            <p>I'm passionate about web development and look forward to applying these skills in future projects. Through this course, I'm gaining hands-on experience with modern web development practices and tools.</p>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Track Your Environmental Impact</h1>
+                <p>Make sustainable choices easier with our comprehensive carbon footprint calculator and eco-friendly lifestyle tips.</p>
+                <div class="hero-buttons">
+                    <a href="calculator.html" class="btn btn-primary">Start Tracking</a>
+                    <a href="tips.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero-earth.jpg" alt="Beautiful Earth from space showing green landscapes and blue oceans" width="600" height="400" loading="lazy">
+            </div>
         </section>
 
-        <section class="card">
-            <h2>Course Learning Objectives</h2>
-            <img src="images/web-development.png" alt="Web development coding on laptop screen" width="300" height="200">
-            <p>In WDD 131, I'm learning to create dynamic, responsive web pages using HTML5, CSS3, and JavaScript. Key topics include:</p>
-            <ul>
-                <li>Semantic HTML structure and accessibility</li>
-                <li>CSS Grid and Flexbox for modern layouts</li>
-                <li>JavaScript DOM manipulation and event handling</li>
-                <li>Responsive design principles</li>
-                <li>Web performance optimization</li>
-            </ul>
-            <p>Each week builds upon previous knowledge, culminating in a comprehensive final project that demonstrates mastery of dynamic web fundamentals.</p>
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose EcoTracker?</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Carbon Footprint Calculator</h3>
+                        <p>Calculate your daily, monthly, and annual carbon emissions from transportation, energy use, and lifestyle choices.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>Personalized Eco Tips</h3>
+                        <p>Get customized recommendations based on your lifestyle to reduce your environmental impact effectively.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor your environmental improvements over time with detailed analytics and goal-setting features.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Global Impact</h3>
+                        <p>See how your actions contribute to global sustainability efforts and connect with like-minded individuals.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="statistics">
+            <div class="container">
+                <h2>Our Impact So Far</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="15000">0</span>
+                        <span class="stat-label">Users Tracking</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="250000">0</span>
+                        <span class="stat-label">CO₂ Tons Saved</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="45">0</span>
+                        <span class="stat-label">Countries Reached</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="1200">0</span>
+                        <span class="stat-label">Eco Tips Shared</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity Section -->
+        <section class="recent-activity">
+            <div class="container">
+                <h2>Your Recent Activity</h2>
+                <div id="activity-container" class="activity-list">
+                    <p class="no-activity">Start using EcoTracker to see your activity here!</p>
+                </div>
+                <div class="activity-actions">
+                    <button id="clear-activity" class="btn btn-outline">Clear All Activity</button>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; <span id="currentyear"></span> Kalungi Isaac, Kampla, UGANDA</p>
-        <p id="lastModified"></p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EcoTracker</h3>
+                    <p>Making sustainable living accessible to everyone through technology and community.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="calculator.html">Carbon Calculator</a></li>
+                        <li><a href="tips.html">Eco Tips</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="references.html">References</a></li>
+                        <li><a href="#" aria-label="Privacy Policy">Privacy Policy</a></li>
+                        <li><a href="#" aria-label="Terms of Service">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> EcoTracker| Kalungi Isaac. All rights reserved.</p>
+                <p id="last-modified"></p>
+            </div>
+        </div>
     </footer>
+
+    
 </body>
 </html>

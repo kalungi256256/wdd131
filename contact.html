@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - EcoTracker | Get in Touch for Support and Feedback</title>
+    <meta name="description" content="Contact EcoTracker for support, feedback, or partnership opportunities. We're here to help you on your sustainable living journey.">
+    <meta name="author" content="Your Name">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    <span class="logo-icon">🌱</span>
+                    EcoTracker
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="calculator.html" class="nav-link">Carbon Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="tips.html" class="nav-link">Eco Tips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link active">Contact</a>
+                    </li>
+                </ul>
+                <button class="hamburger" aria-label="Toggle navigation menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Get in Touch</h1>
+                <p>We'd love to hear from you! Whether you have questions, feedback, or ideas for improvement, we're here to help.</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <div class="info-cards">
+                            <div class="info-card">
+                                <div class="info-icon">📧</div>
+                                <h3>Email Us</h3>
+                                <p>support@ecotracker.com</p>
+                                <p>partnerships@ecotracker.com</p>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon">📞</div>
+                                <h3>Call Us</h3>
+                                <p>+1 (555) 123-4567</p>
+                                <p>Mon-Fri 9AM-6PM EST</p>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon">🌍</div>
+                                <h3>Follow Us</h3>
+                                <div class="social-links">
+                                    <a href="#" aria-label="Twitter">Twitter</a>
+                                    <a href="#" aria-label="Instagram">Instagram</a>
+                                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-section">
+                        <h2>Send us a Message</h2>
+                        <form id="contact-form" class="contact-form" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name *</label>
+                                    <input type="text" id="first-name" name="firstName" required minlength="2" maxlength="50">
+                                    <span class="error-message" id="first-name-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name *</label>
+                                    <input type="text" id="last-name" name="lastName" required minlength="2" maxlength="50">
+                                    <span class="error-message" id="last-name-error"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" pattern="[0-9\-\+\s\(\)]+">
+                                <span class="error-message" id="phone-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="partnership">Partnership Inquiry</option>
+                                    <option value="suggestion">Suggestion</option>
+                                    <option value="bug-report">Bug Report</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="error-message" id="subject-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" required minlength="10" maxlength="1000" placeholder="Please provide details about your inquiry..."></textarea>
+                                <div class="character-count">
+                                    <span id="char-count">0</span>/1000 characters
+                                </div>
+                                <span class="error-message" id="message-error"></span>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    Subscribe to our newsletter for eco tips and updates
+                                </label>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="privacy" name="privacy" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#" target="_blank">Privacy Policy</a> and <a href="#" target="_blank">Terms of Service</a> *
+                                </label>
+                                <span class="error-message" id="privacy-error"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loading" style="display: none;">Sending...</span>
+                            </button>
+                        </form>
+
+                        <div id="form-success" class="success-message" style="display: none;">
+                            <div class="success-icon">✅</div>
+                            <h3>Message Sent Successfully!</h3>
+                            <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>How accurate is the carbon calculator?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our carbon calculator uses industry-standard emission factors and methodologies recognized by environmental organizations. While estimates may vary based on regional factors, our calculator provides a reliable baseline for understanding your environmental impact.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Is my data secure and private?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, we take data privacy seriously. All calculations are stored locally on your device using localStorage. We don't collect or store personal calculation data on our servers without explicit consent.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Can I export my calculation history?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Currently, data is stored locally on your device. We're working on features to allow data export and cloud synchronization in future updates.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>How often are the eco tips updated?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We regularly update our eco tips database with new content, seasonal advice, and the latest sustainability research. New tips are added weekly to keep the content fresh and relevant.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EcoTracker</h3>
+                    <p>Making sustainable living accessible to everyone through technology and community.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="calculator.html">Carbon Calculator</a></li>
+                        <li><a href="tips.html">Eco Tips</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="references.html">References</a></li>
+                        <li><a href="#" aria-label="Privacy Policy">Privacy Policy</a></li>
+                        <li><a href="#" aria-label="Terms of Service">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> EcoTracker. All rights reserved.</p>
+                <p id="last-modified"></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/contact.js" defer></script>
+</body>
+</html>

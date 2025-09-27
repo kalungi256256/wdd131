@@ -32,11 +32,11 @@ body {
 .header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .header p {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     opacity: 0.9;
 }
 
@@ -59,6 +59,7 @@ label {
 
 h1::before {
     content: "📝"
+    
 }
 
 .required::after {

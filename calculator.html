@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Calculator - EcoTracker | Calculate Your Environmental Impact</title>
+    <meta name="description" content="Calculate your carbon footprint with our comprehensive tool. Track transportation, energy use, and lifestyle choices to understand your environmental impact.">
+    <meta name="author" content="Your Name">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    <span class="logo-icon">🌱</span>
+                    EcoTracker
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="calculator.html" class="nav-link active">Carbon Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="tips.html" class="nav-link">Eco Tips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <button class="hamburger" aria-label="Toggle navigation menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Carbon Footprint Calculator</h1>
+                <p>Calculate your daily carbon emissions and get personalized recommendations to reduce your environmental impact.</p>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <div class="calculator-form">
+                        <form id="carbon-calculator" class="carbon-form">
+                            <div class="form-section">
+                                <h3>Transportation</h3>
+                                <div class="form-group">
+                                    <label for="car-miles">Daily car miles:</label>
+                                    <input type="number" id="car-miles" name="carMiles" min="0" max="500" step="0.1" placeholder="0">
+                                    <span class="unit">miles</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="public-transport">Daily public transport hours:</label>
+                                    <input type="number" id="public-transport" name="publicTransport" min="0" max="24" step="0.5" placeholder="0">
+                                    <span class="unit">hours</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="flights">Flights per year:</label>
+                                    <input type="number" id="flights" name="flights" min="0" max="100" placeholder="0">
+                                    <span class="unit">flights</span>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Energy Usage</h3>
+                                <div class="form-group">
+                                    <label for="electricity">Monthly electricity usage:</label>
+                                    <input type="number" id="electricity" name="electricity" min="0" max="5000" placeholder="800">
+                                    <span class="unit">kWh</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gas">Monthly natural gas usage:</label>
+                                    <input type="number" id="gas" name="gas" min="0" max="500" placeholder="50">
+                                    <span class="unit">therms</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="renewable">Renewable energy percentage:</label>
+                                    <input type="range" id="renewable" name="renewable" min="0" max="100" value="20">
+                                    <span class="unit" id="renewable-value">20%</span>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Lifestyle</h3>
+                                <div class="form-group">
+                                    <label for="diet">Diet type:</label>
+                                    <select id="diet" name="diet" required>
+                                        <option value="">Select diet type</option>
+                                        <option value="meat-heavy">Meat Heavy</option>
+                                        <option value="average">Average</option>
+                                        <option value="low-meat">Low Meat</option>
+                                        <option value="vegetarian">Vegetarian</option>
+                                        <option value="vegan">Vegan</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="shopping">Monthly shopping (non-essentials):</label>
+                                    <input type="number" id="shopping" name="shopping" min="0" max="10000" placeholder="200">
+                                    <span class="unit">$</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recycling">Recycling habits:</label>
+                                    <select id="recycling" name="recycling" required>
+                                        <option value="">Select recycling level</option>
+                                        <option value="none">Never recycle</option>
+                                        <option value="occasional">Occasionally</option>
+                                        <option value="regular">Regularly</option>
+                                        <option value="always">Always recycle</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Calculate My Footprint</button>
+                        </form>
+                    </div>
+
+                    <div class="results-panel">
+                        <div id="calculation-results" class="results-hidden">
+                            <h3>Your Carbon Footprint</h3>
+                            <div class="result-summary">
+                                <div class="total-emissions">
+                                    <span class="emissions-number" id="total-emissions">0</span>
+                                    <span class="emissions-unit">tons CO₂/year</span>
+                                </div>
+                                <div class="comparison" id="comparison-text">
+                                    Calculate your footprint to see how you compare to averages.
+                                </div>
+                            </div>
+                            
+                            <div class="breakdown">
+                                <h4>Emissions Breakdown</h4>
+                                <div class="breakdown-chart">
+                                    <div class="breakdown-item">
+                                        <span class="category">Transportation</span>
+                                        <div class="bar-container">
+                                            <div class="bar" data-category="transportation"></div>
+                                        </div>
+                                        <span class="value" id="transport-emissions">0</span>
+                                    </div>
+                                    <div class="breakdown-item">
+                                        <span class="category">Energy</span>
+                                        <div class="bar-container">
+                                            <div class="bar" data-category="energy"></div>
+                                        </div>
+                                        <span class="value" id="energy-emissions">0</span>
+                                    </div>
+                                    <div class="breakdown-item">
+                                        <span class="category">Lifestyle</span>
+                                        <div class="bar-container">
+                                            <div class="bar" data-category="lifestyle"></div>
+                                        </div>
+                                        <span class="value" id="lifestyle-emissions">0</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="recommendations">
+                                <h4>Personalized Recommendations</h4>
+                                <div id="recommendations-list">
+                                    <!-- Recommendations will be populated by JavaScript -->
+                                </div>
+                            </div>
+
+                            <div class="save-results">
+                                <button id="save-calculation" class="btn btn-secondary">Save Results</button>
+                                <button id="share-results" class="btn btn-outline">Share Results</button>
+                            </div>
+                        </div>
+
+                        <div id="calculation-placeholder" class="results-placeholder">
+                            <div class="placeholder-icon">🧮</div>
+                            <h3>Calculate Your Impact</h3>
+                            <p>Fill out the form to see your carbon footprint calculation and get personalized recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="saved-calculations">
+            <div class="container">
+                <h2>Your Calculation History</h2>
+                <div id="saved-calculations-list" class="calculations-grid">
+                    <p class="no-calculations">No saved calculations yet. Complete a calculation and save it to see your history here.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EcoTracker</h3>
+                    <p>Making sustainable living accessible to everyone through technology and community.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="calculator.html">Carbon Calculator</a></li>
+                        <li><a href="tips.html">Eco Tips</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="references.html">References</a></li>
+                        <li><a href="#" aria-label="Privacy Policy">Privacy Policy</a></li>
+                        <li><a href="#" aria-label="Terms of Service">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> EcoTracker. All rights reserved.</p>
+                <p id="last-modified"></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/calculator.js" defer></script>
+</body>
+</html>
