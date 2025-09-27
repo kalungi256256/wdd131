@@ -24,8 +24,8 @@
         }
 
         .header {
-            background: linear-gradient(whitesmoke 100%);
-            color:blue;
+            background:lightblue;
+            color:black;
             padding: 30px;
             text-align: center;
         }
