@@ -1,0 +1,35 @@
+ /* Color Schema */
+    :root {
+      --primary-color: #1E90FF;   /* Dodger Blue */
+      --secondary-color: #FFD700; /* Gold */
+      --background-color: #f8f9fa;
+      --text-color: #333333;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 2rem;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Merriweather', serif;
+      color: var(--primary-color);
+    }
+
+    .highlight {
+      color: var(--secondary-color);
+      font-weight: bold;
+      font-size:x-large;
+      font-weight: 2rem bold;
+    }
+
+    .wireframe {
+      border: 2px dashed var(--primary-color);
+      padding: 1rem;
+      margin: 1rem 0;
+      text-align: center;
+      background: white;
+    }

@@ -13,7 +13,10 @@ const EcoTracker = {
             estimatedSavings: 0
         }
     },
+
     
+            
+
     // Initialize application
     init() {
         this.loadFromStorage();
@@ -310,3 +313,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Make EcoTracker globally available
 window.EcoTracker = EcoTracker;
+
+// Event listeners for navigation links
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('nav .nav-link');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mainNav = document.getElementById('main-nav')});
+    
+    // Mobile menu toggle
+    mobileMenuBtn.addEventListener('click', function() {
+        mainNav.classList.toggle('show');
+        // Change hamburger icon to X when open
+        if (mainNav.classList.contains('show')) {
+            this.innerHTML = '✕';
+        } else {
+            this.innerHTML = '☰';
+        }
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links
+            links.forEach(lnk => lnk.classList.remove('active'));
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Close mobile menu on small screens
+            if (window.innerWidth <= 768) {
+                mainNav.classList.remove('show');
+                mobileMenuBtn.innerHTML = '☰';
+            }
+            
+            // Filter temples based on link clicked
+            let filteredTemples;
+            switch(this.id) {
+                case 'old':
+                    filteredTemples = filterOld();
+                    break;
+                case 'new':
+                    filteredTemples = filterNew();
+                    break;
+                case 'large':
+                    filteredTemples = filterLarge();
+                    break;
+                case 'small':
+                    filteredTemples = filterSmall();
+                    break;
+                default:
+                    filteredTemples = temples;
+            }
+            
+            renderTemples(filteredTemples);
+        });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && 
+            !mainNav.contains(e.target) && 
+            !mobileMenuBtn.contains(e.target) && 
+            mainNav.classList.contains('show')) {
+            mainNav.classList.remove('show');
+            mobileMenuBtn.innerHTML = '☰';
+        }
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            mainNav.classList.remove('show');
+            mobileMenuBtn.innerHTML = '☰';
+        }
+    });

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oner Express - Fast Shopping, Great Deals</title>
+    <meta name="description" content="Oner Express - Your one-stop shop for electronics, fashion, and home goods. Fast delivery and great prices guaranteed.">
+    <meta name="author" content="Your Name">
+    <link rel="stylesheet" href="styles/home.css">
+    <script src="scripts/home.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text">Oner Express</span>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="home.html" class="nav-link active">Home</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="signin.html" class="nav-link">Sign In</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <div class="cart-icon">
+                        <span class="cart-symbol">🛍️</span>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                    
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Welcome to Oner Express</h1>
+                    <p class="hero-subtitle">Your one-stop shop for everything you need. Fast delivery, great prices, amazing service.</p>
+                    <div class="hero-buttons">
+                        <a href="products.html" class="btn btn-primary">Shop Now</a>
+                        <a href="signin.html" class="btn btn-secondary">Sign Up</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/hero-shopping.jpg" alt="Happy customers shopping with packages and shopping bags" width="500" height="400" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose Oner Express?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚚</div>
+                        <h3>Fast Delivery</h3>
+                        <p>Get your orders delivered in 24-48 hours with our express shipping service.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <h3>Quality Products</h3>
+                        <p>We only sell high-quality products from trusted brands and suppliers.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Secure Payment</h3>
+                        <p>Your payment information is always safe with our secure checkout process.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Great Deals</h3>
+                        <p>Enjoy amazing discounts and special offers on thousands of products.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Products Section -->
+        <section class="popular-products">
+            <div class="container">
+                <h2>Popular Products</h2>
+                <div class="products-grid" id="popular-products">
+                    <!-- Products will be loaded by JavaScript -->
+                </div>
+                <div class="section-footer">
+                    <a href="products.html" class="btn btn-outline">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3>Stay Updated</h3>
+                        <p>Get the latest deals and product updates delivered to your inbox!</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Oner Express</h4>
+                    <p>Your trusted shopping partner for quality products and fast delivery.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="signin.html">Sign In</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="references.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Customer Service</h5>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#shipping">Shipping Info</a></li>
+                        <li><a href="#returns">Returns</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Contact Info</h5>
+                    <p>📧 support@onerexpress.com</p>
+                    <p>📞 1-800-ONER-EXP</p>
+                    <p>🏠 123 Shopping St, Commerce City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Oner Express| Kalungi Isaac. All rights reserved.</p>
+                <p id="last-modified"></p>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
