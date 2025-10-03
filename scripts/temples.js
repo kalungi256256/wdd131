@@ -75,7 +75,7 @@ const temples = [
 // Function to create temple card HTML
 function createTempleCard(temple) {
     return `
-        <div class="temple-card fade-in">
+        <div class="temple-card fly-in">
             <img src="${temple.imageUrl}" alt="${temple.templeName} Temple" loading="lazy">
             <div class="card-content">
                 <h3 class="temple-name">${temple.templeName}</h3>

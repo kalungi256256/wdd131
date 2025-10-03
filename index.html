@@ -2,175 +2,162 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoTracker - Home | Sustainable Living Made Simple</title>
-    <meta name="description"
-        content="EcoTracker helps you monitor and improve your environmental impact through carbon footprint tracking, eco-friendly tips, and sustainable living resources.">
-    <meta name="author" content="Kalungi Isaac">
-    <script src="scripts/main.js" defer></script>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap"
-        rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Oner Express Ug | Kalungi Isaac</title>
+  <meta name="description"
+    content="Oner Express Ug - demo e-commerce site for project. Semantic HTML, responsive CSS, dynamic JS.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
 
 <body>
-    <header>
-        <button class="mobile-menu" id="mobile-menu-btn">☰</button>
-        <nav class="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo">
-                    <span class="logo-icon">🌱</span>
-                    EcoTracker
-                </a>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="calculator.html" class="nav-link">Carbon Calculator</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="tips.html" class="nav-link">Eco Tips</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-                <button class="hamburger" aria-label="Toggle navigation menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-            </div>
-        </nav>
-    </header>
+  <!-- Top announcement -->
+  <header class="topbar">
+    Free delivery for orders over UGX 150,000 • Secure payments • 24/7 support
+  </header>
 
+  <!-- Main header / navigation -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="logo" aria-hidden="false">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <rect width="24" height="24" rx="5" fill="#fff" />
+          <path d="M6 14h12v1H6z" fill="#003366" opacity="0.95" />
+          <path d="M6 8h12v1H6z" fill="#003366" opacity="0.95" />
+        </svg>
+        <div>
+          <div class="brand">Oner Express Ug</div>
+          <div class="tag muted">Shop Uganda • Fast delivery</div>
+        </div>
+      </div>
+
+      <nav class="primary" aria-label="Primary navigation">
+        <a href="#" class="nav-home">Home</a>
+        <a href="#" class="nav-shop">Shop</a>
+        <a href="#" class="nav-cats">Categories</a>
+        <a href="#" class="nav-deals">Deals</a>
+        <a href="#" class="nav-new">New Arrivals</a>
+        <a href="#" class="nav-best">Best Sellers</a>
+        <a href="#" class="nav-about">About</a>
+        <a href="#" class="nav-contact">Contact</a>
+        <a href="#" class="nav-support">Support</a>
+      </nav>
+
+      <div class="nav-actions" role="group" aria-label="Site actions">
+        <button class="icon-btn" id="toggle-filters" aria-pressed="false" title="Toggle filters">Filters</button>
+        <button class="icon-btn" id="open-account" title="Account">Account</button>
+        <button class="icon-btn" id="open-cart" aria-haspopup="true" aria-expanded="false" title="Cart">
+          Cart <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search + promo -->
+  <div class="container top-helpers" style="margin-top:1rem;">
+    <div class="search" role="search" aria-label="Search products">
+      <input id="search-input" type="search" placeholder="Search products, brands or categories..."
+        aria-label="Search products" />
+      <button id="search-btn" aria-label="Start search">Search</button>
+    </div>
+
+    <div class="promo" aria-hidden="true">
+      <div class="title">OctoberFest Sale</div>
+      <div class="sub">Up to 50% off selected electronics & fashion</div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="container" style="margin-top:0.8rem;">
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Track Your Environmental Impact</h1>
-                <p>Make sustainable choices easier with our comprehensive carbon footprint calculator and eco-friendly
-                    lifestyle tips.</p>
-                <div class="hero-buttons">
-                    <a href="calculator.html" class="btn btn-primary">Start Tracking</a>
-                    <a href="tips.html" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="images/hold.jpg" alt="Beautiful Earth from space showing green landscapes and blue oceans"
-                    width="600" height="400" loading="lazy">
-            </div>
-        </section>
+      <!-- SIDEBAR FILTERS -->
+      <aside class="filters" id="sidebar" aria-labelledby="filters-heading">
+        <h3 id="filters-heading">Filters</h3>
 
-        <!-- Features Section -->
-        <section class="features">
-            <div class="container">
-                <h2>Why Choose EcoTracker?</h2>
-                <div class="features-grid">
-                    <article class="feature-card">
-                        <div class="feature-icon">📈</div>
-                        <h3>Carbon Footprint Calculator</h3>
-                        <p>Calculate your daily, monthly, and annual carbon emissions from transportation, energy use,
-                            and lifestyle choices.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-icon">💡</div>
-                        <h3>Personalized Eco Tips</h3>
-                        <p>Get customized recommendations based on your lifestyle to reduce your environmental impact
-                            effectively.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-icon">📈</div>
-                        <h3>Progress Tracking</h3>
-                        <p>Monitor your environmental improvements over time with detailed analytics and goal-setting
-                            features.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-icon">🌍</div>
-                        <h3>Global Impact</h3>
-                        <p>See how your actions contribute to global sustainability efforts and connect with like-minded
-                            individuals.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
+        <div class="filter-group">
+          <h4>Categories</h4>
+          <div class="category-list" id="category-list" role="list">
+            <!-- category buttons generated by JS -->
+          </div>
+        </div>
 
-        <!-- Statistics Section -->
-        <section class="statistics">
-            <div class="container">
-                <h2>Our Impact So Far</h2>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="15000">0</span>
-                        <span class="stat-label">Users Tracking</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="250000">0</span>
-                        <span class="stat-label">CO₂ Tons Saved</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="45">0</span>
-                        <span class="stat-label">Countries Reached</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="1200">0</span>
-                        <span class="stat-label">Eco Tips Shared</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="filter-group">
+          <h4>Sort by</h4>
+          <select id="sort-select" class="sort-select" aria-label="Sort products">
+            <option value="relevance" selected>Relevance</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="name-az">Name: A → Z</option>
+            <option value="name-za">Name: Z → A</option>
+          </select>
+        </div>
 
-        <!-- Recent Activity Section -->
-        <section class="recent-activity">
-            <div class="container">
-                <h2>Your Recent Activity</h2>
-                <div id="activity-container" class="activity-list">
-                    <p class="no-activity">Start using EcoTracker to see your activity here!</p>
-                </div>
-                <div class="activity-actions">
-                    <button id="clear-activity" class="btn btn-outline">Clear All Activity</button>
-                </div>
-            </div>
+        <div class="filter-group">
+          <h4>Price</h4>
+          <div class="muted">Prices shown in UGX (simulated)</div>
+        </div>
+
+        <!-- PRODUCTS AREA -->
+        <section aria-labelledby="results-heading">
+          <h2 id="results-heading" class="sr-only">Product results</h2>
+          <div class="products-grid" id="products-grid" aria-live="polite">
+            <!-- product cards injected by JS -->
+          </div>
         </section>
     </main>
+  </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>EcoTracker</h3>
-                    <p>Making sustainable living accessible to everyone through technology and community.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="calculator.html">Carbon Calculator</a></li>
-                        <li><a href="tips.html">Eco Tips</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="references.html">References</a></li>
-                        <li><a href="#" aria-label="Privacy Policy">Privacy Policy</a></li>
-                        <li><a href="#" aria-label="Terms of Service">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> EcoTracker| Kalungi Isaac. All rights reserved.</p>
-                <p id="last-modified"></p>
-            </div>
+  <!-- Cart Drawer -->
+  <aside id="cart-drawer" class="cart-drawer" aria-hidden="true" aria-label="Shopping cart">
+    <h3>Shopping cart</h3>
+    <div class="cart-items" id="cart-items">
+      <div class="muted">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="muted">Total:</div>
+      <div id="cart-total" style="font-weight:900">UGX 0</div>
+    </div>
+    <div style="margin-top:.6rem;display:flex;gap:.6rem;justify-content:space-between">
+      <button class="btn ghost" id="view-cart">View cart</button>
+      <button class="btn primary" id="checkout">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <h4>Oner Express Ug</h4>
+        <p class="muted">Fast delivery across Uganda • Secure payments </p>
+      </div>
+      <div>
+        <h4>Customer</h4>
+        <ul style="list-style:none;padding-left:0;margin:0">
+          <li><a href="#">Delivery info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Help center</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul style="list-style:none;padding-left:0;margin:0">
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <div class="socials">
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Twitter">Twitter</a>
         </div>
-    </footer>
-
-
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
+```

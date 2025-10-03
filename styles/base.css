@@ -40,7 +40,17 @@ nav {
     gap: 2rem;
     flex-wrap: wrap;
 }
-
+iframe {
+    border: solid 2px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin: 2rem;
+    width: 20%;
+    display: inline-block;
+    padding: 4px;
+    align-items: center;
+    justify-items: center;
+}
 nav a {
     color: #ffffff;
     text-decoration: none;

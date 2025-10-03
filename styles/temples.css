@@ -20,7 +20,7 @@ header {
 }
 
 h1::before {
-    content: "💕";
+    content: "🛒";
     align-items: center;
 }
 
