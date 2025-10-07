@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Contact - Oner Express Ug</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1E90FF; /* Dodger Blue */
+            --secondary-color: #FFD700; /* Gold */
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #333333; /* Dark Gray */
+            --border-color: #dee2e6;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            color: var(--text-color);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            font-family: 'Merriweather', serif;
+        }
+
+        .logo i {
+            color: var(--secondary-color);
+            margin-right: 5px;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 20px;
+            display: flex;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            color: white;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .user-actions a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .user-actions i {
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            padding: 10px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Help Page Styles */
+        .help-container {
+            display: flex;
+            gap: 30px;
+        }
+
+        .help-sidebar {
+            flex: 0 0 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-sidebar h3 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .help-sidebar ul li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .help-sidebar ul li:hover {
+            background-color: var(--light-color);
+        }
+
+        .help-sidebar ul li.active {
+            background-color: var(--light-color);
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .help-content {
+            flex: 1;
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-section {
+            display: none;
+        }
+
+        .help-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background-color: #1a7fd9;
+        }
+
+        /* Success Page Styles */
+        .success-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .success-icon {
+            font-size: 64px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .success-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #28a745;
+        }
+
+        .success-message {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .submission-details {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .submission-details h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .detail-item {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .detail-value {
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e6c200;
+        }
+
+        /* FAQ Styles */
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px;
+            background-color: var(--light-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .faq-answer {
+            padding: 15px;
+            display: none;
+            background-color: white;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .search-bar {
+                max-width: 400px;
+            }
+            
+            .help-container {
+                flex-direction: column;
+            }
+            
+            .help-sidebar {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                order: 1;
+            }
+            
+            .hamburger {
+                order: 2;
+                display: block;
+            }
+            
+            .user-actions {
+                order: 3;
+                width: 100%;
+                justify-content: space-around;
+                margin-top: 15px;
+            }
+            
+            .search-bar {
+                order: 4;
+                max-width: 100%;
+                margin: 15px 0 0;
+            }
+            
+            .nav-links ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                padding: 15px;
+                z-index: 99;
+            }
+            
+            .nav-links ul.show {
+                display: flex;
+            }
+            
+            .nav-links ul li {
+                margin: 10px 0;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .success-container {
+                padding: 20px;
+            }
+            
+            .success-title {
+                font-size: 24px;
+            }
+            
+            .success-message {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <script src="scripts/one_shop.js"></script>
+    <link rel="stylesheet" href="styles/one_shop.css">
+</head>
+<body>
+
+     <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="#" class="logo" data-page="home">
+                    <i class="fas fa-shopping-bag"></i>
+                    Oner Express Ug
+                </a>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for products, brands and categories...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="#" data-page="account">
+                        <i class="fas fa-user"></i>
+                        Account
+                    </a>
+                    <a href="#" data-page="cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        Cart
+                    </a>
+                    <a href="#" data-page="wishlist">
+                        <i class="fas fa-heart"></i>
+                        Wishlist
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <nav>
+            <div class="container">
+                <div class="nav-links">
+                    <div class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <ul>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="products">Products</a></li>
+                        <li><a href="#" data-page="categories">Categories</a></li>
+                        <li><a href="#" data-page="deals">Today's Deals</a></li>
+                        <li><a href="#" data-page="help">Help</a></li>
+                    </ul>
+                    <div class="nav-promo">
+                        <a href="#" data-page="deals" style="color: var(--secondary-color);">Flash Sale: Up to 50% Off!</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <h1>Biggest Sale of the Season!</h1>
+                <p>Discover amazing deals on electronics, fashion, home appliances and more. Shop now and save big!</p>
+                <a href="#" class="cta-button" data-page="products">Shop Now</a>
+            </div>
+            
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid" id="featured-products">
+                <!-- Featured products will be dynamically inserted here -->
+            </div>
+            
+            <h2 class="section-title">Popular Categories</h2>
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Phones & Tablets</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Computers</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Fashion</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home & Kitchen</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>Electronics</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Page -->
+        <section id="products" class="page">
+            <h2 class="section-title">All Products</h2>
+            <div class="products-grid" id="all-products">
+                <!-- All products will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Categories Page -->
+        <section id="categories" class="page">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Phones & Tablets</h3>
+                    <p>Smartphones, Tablets, Accessories</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Computers</h3>
+                    <p>Laptops, Desktops, Monitors</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Fashion</h3>
+                    <p>Clothing, Shoes, Accessories</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home & Kitchen</h3>
+                    <p>Furniture, Appliances, Decor</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>Electronics</h3>
+                    <p>TVs, Audio, Cameras</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Gaming</h3>
+                    <p>Consoles, Games, Accessories</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Health & Beauty</h3>
+                    <p>Skincare, Makeup, Wellness</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Baby Products</h3>
+                    <p>Toys, Clothing, Care</p>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Top Products by Category</h2>
+            <div class="products-grid" id="category-products">
+                <!-- Category products will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Account Page -->
+        <section id="account" class="page">
+            <h2 class="section-title">My Account</h2>
+            <div class="account-container">
+                <div class="account-sidebar">
+                    <ul>
+                        <li class="active" data-tab="profile">Profile Information</li>
+                        <li data-tab="orders">Order History</li>
+                        <li data-tab="addresses">Saved Addresses</li>
+                        <li data-tab="payment">Payment Methods</li>
+                        <li data-tab="settings">Account Settings</li>
+                    </ul>
+                </div>
+                <div class="account-content">
+                    <!-- Profile Information -->
+                    <div class="account-section active" id="profile-section">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h2>John Doe</h2>
+                                <p>Member since January 2022</p>
+                            </div>
+                        </div>
+                        
+                        <form>
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" value="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" value="johndoe@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" value="+1 (555) 123-4567">
+                            </div>
+                            <div class="form-group">
+                                <label for="birthdate">Date of Birth</label>
+                                <input type="date" id="birthdate" value="1990-05-15">
+                            </div>
+                            <button type="button" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Order History -->
+                    <div class="account-section" id="orders-section">
+                        <h3>Order History</h3>
+                        <table class="order-history">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-7842</td>
+                                    <td>Oct 15, 2023</td>
+                                    <td>2 items</td>
+                                    <td>$245.99</td>
+                                    <td><span class="order-status status-delivered">Delivered</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-7721</td>
+                                    <td>Oct 10, 2023</td>
+                                    <td>1 item</td>
+                                    <td>$129.99</td>
+                                    <td><span class="order-status status-delivered">Delivered</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-7598</td>
+                                    <td>Oct 5, 2023</td>
+                                    <td>3 items</td>
+                                    <td>$367.50</td>
+                                    <td><span class="order-status status-shipped">Shipped</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-7432</td>
+                                    <td>Sep 28, 2023</td>
+                                    <td>1 item</td>
+                                    <td>$79.99</td>
+                                    <td><span class="order-status status-processing">Processing</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Saved Addresses -->
+                    <div class="account-section" id="addresses-section">
+                        <h3>Saved Addresses</h3>
+                        <div class="form-group">
+                            <label for="address1">Primary Address</label>
+                            <textarea id="address1">123 Main Street, Apt 4B, New York, NY 10001, United States</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="address2">Secondary Address (Optional)</label>
+                            <textarea id="address2">456 Oak Avenue, Los Angeles, CA 90001, United States</textarea>
+                        </div>
+                        <button type="button" class="btn-primary">Update Addresses</button>
+                    </div>
+                    
+                    <!-- Payment Methods -->
+                    <div class="account-section" id="payment-section">
+                        <h3>Payment Methods</h3>
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" value="**** **** **** 1234">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardName">Name on Card</label>
+                            <input type="text" id="cardName" value="John Doe">
+                        </div>
+                        <div class="form-group" style="display: flex; gap: 15px;">
+                            <div style="flex: 1;">
+                                <label for="expiryDate">Expiry Date</label>
+                                <input type="text" id="expiryDate" value="12/25">
+                            </div>
+                            <div style="flex: 1;">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" value="***">
+                            </div>
+                        </div>
+                        <button type="button" class="btn-primary">Update Payment Method</button>
+                    </div>
+                    
+                    <!-- Account Settings -->
+                    <div class="account-section" id="settings-section">
+                        <h3>Account Settings</h3>
+                        <div class="form-group">
+                            <label for="language">Language Preference</label>
+                            <select id="language">
+                                <option selected>English</option>
+                                <option>Spanish</option>
+                                <option>French</option>
+                                <option>German</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="currency">Currency</label>
+                            <select id="currency">
+                                <option selected>US Dollar ($)</option>
+                                <option>Euro (€)</option>
+                                <option>British Pound (£)</option>
+                                <option>Japanese Yen (¥)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="notifications">Email Notifications</label>
+                            <select id="notifications">
+                                <option selected>All notifications</option>
+                                <option>Order updates only</option>
+                                <option>Promotional emails only</option>
+                                <option>No emails</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-primary">Save Settings</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Page -->
+        <section id="review" class="page">
+            <h2 class="section-title">Product Reviews</h2>
+            <div class="review-container">
+                <div class="review-product">
+                    <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Samsung Galaxy Foldable">
+                    <h3>Samsung Galaxy Foldable</h3>
+                    <div class="product-price">$799.99</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.6)</span>
+                    </div>
+                    <p>Foldable smartphone with innovative design and powerful features.</p>
+                </div>
+                <div class="review-content">
+                    <h3>Write a Review</h3>
+                    <form id="review-form">
+                        <div class="form-group">
+                            <label for="review-title">Review Title</label>
+                            <input type="text" id="review-title" placeholder="Summarize your experience">
+                        </div>
+                        <div class="rating-input">
+                            <span>Your Rating:</span>
+                            <div class="star-rating" id="star-rating">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="review-text">Your Review</label>
+                            <textarea id="review-text" placeholder="Share details of your experience with this product"></textarea>
+                        </div>
+                        <button type="button" class="btn-primary" id="submit-review">Submit Review</button>
+                    </form>
+                    
+                    <div class="review-list">
+                        <h3>Customer Reviews</h3>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <span class="review-author">Michael Johnson</span>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="review-date">October 12, 2023</div>
+                            <h4>Amazing innovation!</h4>
+                            <p class="review-text">This phone has completely changed how I use my mobile device. The foldable screen is durable and the multitasking capabilities are incredible. Battery life is also impressive.</p>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <span class="review-author">Sarah Williams</span>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="review-date">October 5, 2023</div>
+                            <h4>Great but pricey</h4>
+                            <p class="review-text">The foldable feature is fantastic for reading and watching videos. The screen quality is excellent. My only complaint is the high price point, but if you can afford it, it's worth it.</p>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <span class="review-author">David Chen</span>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                            <div class="review-date">September 28, 2023</div>
+                            <h4>Impressive technology</h4>
+                            <p class="review-text">I've been using this for a month now and I'm still amazed by the folding mechanism. It feels sturdy and the crease is barely noticeable. Camera quality is also top-notch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="#" class="logo" data-page="home">
+                    <i class="fas fa-shopping-bag"></i>
+                    Oner Express Ug
+                </a>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for products, brands and categories...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="#" data-page="account">
+                        <i class="fas fa-user"></i>
+                        Account
+                    </a>
+                    <a href="#" data-page="cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        Cart
+                    </a>
+                    <a href="#" data-page="wishlist">
+                        <i class="fas fa-heart"></i>
+                        Wishlist
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <nav>
+            <div class="container">
+                <div class="nav-links">
+                    <div class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <ul>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="products">Products</a></li>
+                        <li><a href="#" data-page="categories">Categories</a></li>
+                        <li><a href="#" data-page="deals">Today's Deals</a></li>
+                        <li><a href="#" data-page="help" class="active">Help</a></li>
+                    </ul>
+                    <div class="nav-promo">
+                        <a href="#" data-page="deals" style="color: var(--secondary-color);">Flash Sale: Up to 50% Off!</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Help Page -->
+        <section id="help" class="page active">
+            <h2 class="section-title">Help & Support Center</h2>
+            <div class="help-container">
+                <div class="help-sidebar">
+                    <h3>Help Topics</h3>
+                    <ul>
+                        <li class="active" data-help="contact">Contact Us</li>
+                        <li data-help="faq">FAQ</li>
+                        <li data-help="shipping">Shipping Info</li>
+                        <li data-help="returns">Returns & Refunds</li>
+                        <li data-help="account">Account Help</li>
+                        <li data-help="payment">Payment Methods</li>
+                    </ul>
+                </div>
+                <div class="help-content">
+                    <!-- Contact Form -->
+                    <div class="help-section active" id="contact-section">
+                        <h3>Contact Our Support Team</h3>
+                        <p>Have a question or need assistance? Fill out the form below and our support team will get back to you within 24 hours.</p>
+                        
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="order">Order Issue</option>
+                                    <option value="product">Product Question</option>
+                                    <option value="shipping">Shipping Problem</option>
+                                    <option value="return">Return Request</option>
+                                    <option value="account">Account Issue</option>
+                                    <option value="payment">Payment Problem</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="orderNumber">Order Number (if applicable)</label>
+                                <input type="text" id="orderNumber" name="orderNumber">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message *</label>
+                                <textarea id="message" name="message" placeholder="Please describe your issue or question in detail..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="urgency">Urgency Level</label>
+                                <select id="urgency" name="urgency">
+                                    <option value="low">Low - General inquiry</option>
+                                    <option value="medium" selected>Medium - Need response within 24 hours</option>
+                                    <option value="high">High - Urgent issue affecting my order</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="subscribe" checked>
+                                    Subscribe to our newsletter for updates and promotions
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary">Submit Request</button>
+                        </form>
+                    </div>
+                    
+                    <!-- FAQ Section -->
+                    <div class="help-section" id="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                How long does shipping take?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Standard shipping typically takes 3-5 business days. Express shipping is available for delivery within 1-2 business days. International shipping may take 7-14 business days depending on the destination.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                What is your return policy?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We offer a 30-day return policy for most items. Products must be in original condition with tags attached. Some items like electronics have different return windows, so please check the product page for specific details.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                How can I track my order?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Once your order ships, you'll receive a tracking number via email. You can also track your order by logging into your account and visiting the "Order History" section.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                Do you ship internationally?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, we ship to over 50 countries worldwide. Shipping costs and delivery times vary by location. You can see the shipping options available during checkout.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                What payment methods do you accept?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, Apple Pay, and Google Pay. For some regions, we also offer cash on delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Other help sections would go here -->
+                    <div class="help-section" id="shipping-section">
+                        <h3>Shipping Information</h3>
+                        <p>Detailed shipping information would go here...</p>
+                    </div>
+                    
+                    <div class="help-section" id="returns-section">
+                        <h3>Returns & Refunds</h3>
+                        <p>Detailed returns and refunds information would go here...</p>
+                    </div>
+                    
+                    <div class="help-section" id="account-section">
+                        <h3>Account Help</h3>
+                        <p>Detailed account help information would go here...</p>
+                    </div>
+                    
+                    <div class="help-section" id="payment-section">
+                        <h3>Payment Methods</h3>
+                        <p>Detailed payment methods information would go here...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Success Page -->
+        <section id="success" class="page">
+            <div class="success-container">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 class="success-title">Thank You!</h2>
+                <p class="success-message">Your support request has been submitted successfully. We'll get back to you within 24 hours.</p>
+                
+                <div class="submission-details">
+                    <h3>Your Submission Details</h3>
+                    <div id="submission-details-content">
+                        <!-- This will be populated with JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn-primary" id="back-to-help">Submit Another Request</button>
+                    <button class="btn-secondary" id="back-to-home">Back to Homepage</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Oner Express Ug</h3>
+                    <p>Your one-stop online shopping destination with the best prices and widest selection of products in Uganda.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#" data-page="help">Help Center</a></li>
+                        <li><a href="#" data-page="help">Contact Us</a></li>
+                        <li><a href="#" data-page="help">Returns & Refunds</a></li>
+                        <li><a href="#" data-page="help">Shipping Information</a></li>
+                        <li><a href="#" data-page="help">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Payment Methods</h3>
+                    <ul>
+                        <li><i class="fab fa-cc-visa"></i> Visa</li>
+                        <li><i class="fab fa-cc-mastercard"></i> Mastercard</li>
+                        <li><i class="fab fa-cc-paypal"></i> PayPal</li>
+                        <li><i class="fab fa-cc-apple-pay"></i> Apple Pay</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Oner Express Ug. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page navigation
+            const navLinks = document.querySelectorAll('a[data-page]');
+            const pages = document.querySelectorAll('.page');
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-links ul');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Hide all pages
+                    pages.forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    
+                    // Show target page
+                    document.getElementById(targetPage).classList.add('active');
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('show')) {
+                        navMenu.classList.remove('show');
+                    }
+                });
+            });
+            
+            // Hamburger menu toggle
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-links') && navMenu.classList.contains('show')) {
+                    navMenu.classList.remove('show');
+                }
+            });
+            
+            // Help sidebar navigation
+            const helpLinks = document.querySelectorAll('.help-sidebar li');
+            const helpSections = document.querySelectorAll('.help-section');
+            
+            helpLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const targetHelp = this.getAttribute('data-help');
+                    
+                    // Remove active class from all links and sections
+                    helpLinks.forEach(l => l.classList.remove('active'));
+                    helpSections.forEach(s => s.classList.remove('active'));
+                    
+                    // Add active class to clicked link and corresponding section
+                    this.classList.add('active');
+                    document.getElementById(`${targetHelp}-section`).classList.add('active');
+                });
+            });
+            
+            // FAQ accordion functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', function() {
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contact-form');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const submissionData = {};
+                
+                for (let [key, value] of formData.entries()) {
+                    submissionData[key] = value;
+                }
+                
+                // Store submission data
+                localStorage.setItem('helpSubmission', JSON.stringify(submissionData));
+                
+                // Show success page
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById('success').classList.add('active');
+                
+                // Display submission details
+                displaySubmissionDetails(submissionData);
+            });
+            
+            // Success page buttons
+            document.getElementById('back-to-help').addEventListener('click', function() {
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById('help').classList.add('active');
+                contactForm.reset();
+            });
+            
+            document.getElementById('back-to-home').addEventListener('click', function() {
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById('home').classList.add('active');
+            });
+            
+            // Function to display submission details
+            function displaySubmissionDetails(data) {
+                const detailsContainer = document.getElementById('submission-details-content');
+                let detailsHTML = '';
+                
+                // Format and display each field
+                for (const [key, value] of Object.entries(data)) {
+                    let label = key;
+                    let displayValue = value;
+                    
+                    // Format labels for better readability
+                    switch(key) {
+                        case 'fullName':
+                            label = 'Full Name';
+                            break;
+                        case 'email':
+                            label = 'Email Address';
+                            break;
+                        case 'phone':
+                            label = 'Phone Number';
+                            break;
+                        case 'subject':
+                            label = 'Subject';
+                            // Format subject value
+                            switch(value) {
+                                case 'order':
+                                    displayValue = 'Order Issue';
+                                    break;
+                                case 'product':
+                                    displayValue = 'Product Question';
+                                    break;
+                                case 'shipping':
+                                    displayValue = 'Shipping Problem';
+                                    break;
+                                case 'return':
+                                    displayValue = 'Return Request';
+                                    break;
+                                case 'account':
+                                    displayValue = 'Account Issue';
+                                    break;
+                                case 'payment':
+                                    displayValue = 'Payment Problem';
+                                    break;
+                                case 'other':
+                                    displayValue = 'Other';
+                                    break;
+                            }
+                            break;
+                        case 'orderNumber':
+                            label = 'Order Number';
+                            break;
+                        case 'message':
+                            label = 'Your Message';
+                            break;
+                        case 'urgency':
+                            label = 'Urgency Level';
+                            // Format urgency value
+                            switch(value) {
+                                case 'low':
+                                    displayValue = 'Low - General inquiry';
+                                    break;
+                                case 'medium':
+                                    displayValue = 'Medium - Need response within 24 hours';
+                                    break;
+                                case 'high':
+                                    displayValue = 'High - Urgent issue affecting my order';
+                                    break;
+                            }
+                            break;
+                        case 'subscribe':
+                            label = 'Newsletter Subscription';
+                            displayValue = value ? 'Subscribed' : 'Not Subscribed';
+                            break;
+                    }
+                    
+                    // Skip empty values
+                    if (!displayValue || displayValue === '') {
+                        continue;
+                    }
+                    
+                    detailsHTML += `
+                        <div class="detail-item">
+                            <div class="detail-label">${label}:</div>
+                            <div class="detail-value">${displayValue}</div>
+                        </div>
+                    `;
+                }
+                
+                detailsContainer.innerHTML = detailsHTML;
+            }
+        });
+    </script>
+</body>
+</html>

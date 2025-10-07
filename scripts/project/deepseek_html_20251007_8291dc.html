@@ -1,0 +1,165 @@
+<section id="account" class="page">
+    <h2 class="section-title">My Account</h2>
+    <div class="account-container">
+        <div class="account-sidebar">
+            <ul>
+                <li class="active" data-tab="profile">Profile Information</li>
+                <li data-tab="orders">Order History</li>
+                <li data-tab="addresses">Saved Addresses</li>
+                <li data-tab="payment">Payment Methods</li>
+                <li data-tab="settings">Account Settings</li>
+            </ul>
+        </div>
+        <div class="account-content">
+            <!-- Profile Information -->
+            <div class="account-section active" id="profile-section">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h2>John Doe</h2>
+                        <p>Member since January 2022</p>
+                    </div>
+                </div>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" value="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" value="johndoe@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" value="+1 (555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Date of Birth</label>
+                        <input type="date" id="birthdate" value="1990-05-15">
+                    </div>
+                    <button type="button" class="btn-primary">Save Changes</button>
+                </form>
+            </div>
+            
+            <!-- Order History -->
+            <div class="account-section" id="orders-section">
+                <h3>Order History</h3>
+                <table class="order-history">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#ORD-7842</td>
+                            <td>Oct 15, 2023</td>
+                            <td>2 items</td>
+                            <td>$245.99</td>
+                            <td><span class="order-status status-delivered">Delivered</span></td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-7721</td>
+                            <td>Oct 10, 2023</td>
+                            <td>1 item</td>
+                            <td>$129.99</td>
+                            <td><span class="order-status status-delivered">Delivered</span></td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-7598</td>
+                            <td>Oct 5, 2023</td>
+                            <td>3 items</td>
+                            <td>$367.50</td>
+                            <td><span class="order-status status-shipped">Shipped</span></td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-7432</td>
+                            <td>Sep 28, 2023</td>
+                            <td>1 item</td>
+                            <td>$79.99</td>
+                            <td><span class="order-status status-processing">Processing</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Saved Addresses -->
+            <div class="account-section" id="addresses-section">
+                <h3>Saved Addresses</h3>
+                <div class="form-group">
+                    <label for="address1">Primary Address</label>
+                    <textarea id="address1">123 Main Street, Apt 4B, New York, NY 10001, United States</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="address2">Secondary Address (Optional)</label>
+                    <textarea id="address2">456 Oak Avenue, Los Angeles, CA 90001, United States</textarea>
+                </div>
+                <button type="button" class="btn-primary">Update Addresses</button>
+            </div>
+            
+            <!-- Payment Methods -->
+            <div class="account-section" id="payment-section">
+                <h3>Payment Methods</h3>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" value="**** **** **** 1234">
+                </div>
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" id="cardName" value="John Doe">
+                </div>
+                <div class="form-group" style="display: flex; gap: 15px;">
+                    <div style="flex: 1;">
+                        <label for="expiryDate">Expiry Date</label>
+                        <input type="text" id="expiryDate" value="12/25">
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" value="***">
+                    </div>
+                </div>
+                <button type="button" class="btn-primary">Update Payment Method</button>
+            </div>
+            
+            <!-- Account Settings -->
+            <div class="account-section" id="settings-section">
+                <h3>Account Settings</h3>
+                <div class="form-group">
+                    <label for="language">Language Preference</label>
+                    <select id="language">
+                        <option selected>English</option>
+                        <option>Spanish</option>
+                        <option>French</option>
+                        <option>German</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="currency">Currency</label>
+                    <select id="currency">
+                        <option selected>US Dollar ($)</option>
+                        <option>Euro (€)</option>
+                        <option>British Pound (£)</option>
+                        <option>Japanese Yen (¥)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notifications">Email Notifications</label>
+                    <select id="notifications">
+                        <option selected>All notifications</option>
+                        <option>Order updates only</option>
+                        <option>Promotional emails only</option>
+                        <option>No emails</option>
+                    </select>
+                </div>
+                <button type="button" class="btn-primary">Save Settings</button>
+            </div>
+        </div>
+    </div>
+</section>

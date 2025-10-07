@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Banner Example</title>
+    <script src="scripts/one_shop.js"></script>
+    <link rel="stylesheet" href="styles/one_shop.css">
+    
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* Navbar promo container */
+        .nav-promo {
+            background: linear-gradient(90deg, #ff4b2b, lightblue
+            );
+            text-align: center;
+            padding: 12px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Promo link styling */
+        .nav-promo a {
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-promo a:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Flash animation */
+        @keyframes flash {
+            0% {opacity: 1;}
+            50% {opacity: 0.6;}
+            100% {opacity: 1;}
+        }
+
+        .nav-promo a {
+            animation: flash 1.5s infinite;
+        }
+
+        /* Optional: small badge icon */
+        .nav-promo a::before {
+            content: "🔥";
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- Promo Banner -->
+    <div class="nav-promo">
+        <a href="#" data-page="deals">Flash Sale: Up to 50% Off!</a>
+    </div>
+    <!-- Products Page -->
+        <section id="products" class="page">
+            <h2 class="section-title">All Products</h2>
+            <div class="products-grid" id="all-products">
+                <!-- All products will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Categories Page -->
+        <section id="categories" class="page">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Phones & Tablets</h3>
+                    <p>Smartphones, Tablets, Accessories</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Computers</h3>
+                    <p>Laptops, Desktops, Monitors</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Fashion</h3>
+                    <p>Clothing, Shoes, Accessories</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home & Kitchen</h3>
+                    <p>Furniture, Appliances, Decor</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>Electronics</h3>
+                    <p>TVs, Audio, Cameras</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Gaming</h3>
+                    <p>Consoles, Games, Accessories</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Health & Beauty</h3>
+                    <p>Skincare, Makeup, Wellness</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Baby Products</h3>
+                    <p>Toys, Clothing, Care</p>
+                </div>
+            </div>
+
+            <h2 class="section-title">Top Products by Category</h2>
+            <div class="products-grid" id="category-products">
+                <!-- Category products will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        // Make the promo link redirect dynamically based on data-page attribute
+        const promoLink = document.querySelector('.nav-promo a');
+        promoLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = promoLink.getAttribute('data-page');
+            
+            // Example dynamic redirection
+            if(page === 'deals') {
+                window.location.href = 'deals.html'; // Your deals page
+            }
+        });
+    </script>
+    
+</body>
+</html>

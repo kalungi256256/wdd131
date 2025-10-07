@@ -1,61 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Submitted - Thank You!</title>
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Product Review Form</title>
-        <meta name="description" content="Submit your product review, share ratings, features, and experiences.">
-        <meta name="author" content="Kalungi Isaac">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap"
-            rel="stylesheet">
-
-        <link rel="stylesheet" href="styles/Review.css">
-        <link rel="stylesheet" href="scripts/review.js">
-        <script src="scripts/Review.js" defer></script>
-    </head>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews | Oner Express Ug</title>
+  <link rel="stylesheet" href="styles/one_shop.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 <body>
+
+  <header>
     <div class="container">
-        <div class="header">
-            <div class="success-icon">😍</div>
-            <h1>Thank You!</h1>
-            <p>Your product review has been successfully submitted</p>
-        </div>
-
-        <div class="content">
-            <div class="review-info" id="reviewInfo">
-                <!-- Review information will be populated here by JavaScript -->
-            </div>
-
-            <div class="counter-section">
-                <h3>Review Counter</h3>
-                <div class="counter-number" id="reviewCounter">0</div>
-                <div class="counter-text">Total reviews completed</div>
-            </div>
-
-            <div class="action-buttons">
-                <a href="form.html" class="btn btn-primary">Submit Another Review</a>
-                <button onclick="history.back()" class="btn btn-secondary">Back</button>
-            </div>
-        </div>
+      <div class="header-top">
+        <a href="index.html" class="logo">
+          <i class="fas fa-shopping-bag"></i> Oner Express Ug
+        </a>
+        <h2 class="page-title">Customer Reviews</h2>
+      </div>
     </div>
+  </header>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; <span id="copyright-year"></span> Product Review | Kalungi Isaac</p>
-            <p>Last Modified: <span id="last-modified"></span></p>
-        </div>
-    </footer>
+  <main class="container">
+    <section id="review-section">
+      <h2 class="section-title">Leave Your Review</h2>
+      <p>Share your experience with Oner Express Ug. Your feedback will help us improve and grow.</p>
 
+      <form id="reviewForm">
+        <label for="username">Your Name:</label>
+        <input type="text" id="username" placeholder="Enter your name" required>
+
+        <label for="rating">Rating:</label>
+        <select id="rating" required>
+          <option value="">--Select Rating--</option>
+          <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+          <option value="4">⭐⭐⭐⭐ Good</option>
+          <option value="3">⭐⭐⭐ Average</option>
+          <option value="2">⭐⭐ Poor</option>
+          <option value="1">⭐ Very Poor</option>
+        </select>
+
+        <label for="review">Your Review:</label>
+        <textarea id="review" rows="4" placeholder="Write your review here..." required></textarea>
+
+        <button type="submit" class="cta-button">Submit Review</button>
+      </form>
+
+      <div id="savedReviews">
+        <h3>Customer Feedback</h3>
+        <ul id="reviewList"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Oner Express Ug. All Rights Reserved.</p>
+      <h2>Kalungi Isaac</h2>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("reviewForm");
+      const reviewList = document.getElementById("reviewList");
+
+      // Load saved reviews from localStorage
+      const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+      reviews.forEach(r => addReviewToList(r));
+
+      // Handle form submission
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const rating = document.getElementById("rating").value;
+        const review = document.getElementById("review").value;
+        const time = new Date().toLocaleString();
+
+        const newReview = { username, rating, review, time };
+        reviews.push(newReview);
+        localStorage.setItem("reviews", JSON.stringify(reviews));
+
+        addReviewToList(newReview);
+        form.reset();
+        alert("Your review has been saved locally!");
+      });
+
+      // Display review in list
+      function addReviewToList(r) {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <strong>${r.username}</strong> (${r.time})<br>
+          <span>${"⭐".repeat(r.rating)}</span><br>
+          <em>${r.review}</em>
+        `;
+        reviewList.appendChild(li);
+      }
+    });
+  </script>
 
 </body>
-
 </html>

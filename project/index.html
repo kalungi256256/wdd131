@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oner Express Ug - Online Shopping</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/help.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="hero">
+            <h1>Biggest Sale of the Season!</h1>
+            <p>Discover amazing deals on electronics, fashion, home appliances and more. Shop now and save big!</p>
+            <a href="products.html" class="cta-button">Shop Now</a>
+        </section>
+        
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid" id="featured-products">
+            <!-- Featured products will be dynamically inserted here -->
+        </div>
+        
+        <h2 class="section-title">Popular Categories</h2>
+        <div class="categories">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Phones & Tablets</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h3>Computers</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3>Fashion</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Home & Kitchen</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <h3>Electronics</h3>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <script src="scripts/products.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+        // Initialize home page specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProducts(products.slice(0, 8), 'featured-products');
+        });
+    </script>
+</body>
+</html>
