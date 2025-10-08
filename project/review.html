@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Oner Express Ug</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../project/styles/styles.css">
+    <script src="../project/scripts/get-dates.js"></script>
+    <script src="../project/scripts/reviews.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Oner Express Ug</h1>
+            </div>
+            <nav>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="review.html" class="active">Reviews</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Customer Reviews</h1>
+                <p>See what our customers are saying about our products and services</p>
+            </div>
+        </section>
+
+        <input type="text" id="name">
+
+        <section class="reviews-section">
+            <div class="container">
+                <div class="reviews-stats">
+                    <div class="rating-overview">
+                        <h2>Overall Rating</h2>
+                        <div class="average-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-value">4.8/5</span>
+                        </div>
+                        <p>Based on 247 reviews</p>
+                    </div>
+                    <div class="rating-breakdown">
+                        <h3>Rating Breakdown</h3>
+                        <div class="rating-bar">
+                            <span>5 stars</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 80%"></div>
+                            </div>
+                            <span>80%</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span>4 stars</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 15%"></div>
+                            </div>
+                            <span>15%</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span>3 stars</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 3%"></div>
+                            </div>
+                            <span>3%</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span>2 stars</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 1%"></div>
+                            </div>
+                            <span>1%</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span>1 star</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 1%"></div>
+                            </div>
+                            <span>1%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-review">
+                    <h2>Write a Review</h2>
+                    <form id="review-form">
+                        <div class="form-group">
+                            <label for="review-rating">Rating</label>
+                            <div class="star-rating">
+                                <span data-rating="1">★</span>
+                                <span data-rating="2">★</span>
+                                <span data-rating="3">★</span>
+                                <span data-rating="4">★</span>
+                                <span data-rating="5">★</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="review-title">Title</label>
+                            <input type="text" id="review-title" placeholder="Enter review title">
+                        </div>
+                        <div class="form-group">
+                            <label for="review-content">Review</label>
+                            <textarea id="review-content" placeholder="Share your experience..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-review-btn">Submit Review</button>
+                    </form>
+                </div>
+
+                <div class="reviews-list" id="reviews-container">
+                    <!-- Dynamic reviews will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Oner Express Ug</h3>
+                    <p>Your trusted partner in online markets and affiliate products in Uganda</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        <li><a href="review.html">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Email: info@onerexpressug.com</p>
+                    <p>Phone: +256 700 333 222</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentyear"></span> OnerExpress Ug | Kalungi Isaac, Kampla, UGANDA</p>
+                <p id="lastModified"></p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

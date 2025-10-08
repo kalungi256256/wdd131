@@ -1,36 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products - Oner Express Ug</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/help.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Products - Oner Express Ug</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../project/styles/styles.css">
+    <script src="../project/scripts/get-dates.js" defer></script>
+    <script src="../project/scripts/script.js"></script>
 </head>
-<body>
-    <!-- Header will be loaded here -->
-    <div id="header-placeholder"></div>
 
-    <!-- Main Content -->
-    <main class="container">
-        <h2 class="section-title">All Products</h2>
-        <div class="products-grid" id="all-products">
-            <!-- All products will be dynamically inserted here -->
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Oner Express Ug</h1>
+            </div>
+            <nav>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Products</h1>
+                <p>Discover trusted affiliate products and amazing deals</p>
+            </div>
+        </section>
+
+        <section class="products-filter">
+            <div class="container">
+                <div class="filter-options">
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="home">Home & Garden</option>
+                        <option value="beauty">Beauty</option>
+                    </select>
+                    <select id="sort-by">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-grid-section">
+            <div class="container">
+                <div class="products-grid" id="products-container">
+                    <!-- Dynamic products will be loaded here -->
+                </div>
+                <div class="load-more-container">
+                    <button id="load-more" class="load-more-btn">Load More Products</button>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer will be loaded here -->
-    <div id="footer-placeholder"></div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Oner Express Ug</h3>
+                    <p>Your trusted partner in online markets and affiliate products in Uganda</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        <li><a href="review.html">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Email: info@onerexpressug.com</p>
+                    <p>Phone: +256 700 000 000</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentyear"></span> OnerExpress Ug | Kalungi Isaac, Kampla, UGANDA</p>
+                <p id="lastModified"></p>
+            </div>
+        </div>
+    </footer>
 
-    <script src="scripts/products.js"></script>
-    <script src="scripts/main.js"></script>
-    <script>
-        // Initialize products page specific functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            displayProducts(products, 'all-products');
-        });
-    </script>
+
 </body>
+
 </html>

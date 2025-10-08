@@ -3,74 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oner Express Ug - Online Shopping</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/help.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Oner Express Ug - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../project/styles/styles.css">
+    <link rel="stylesheet" href="sreen.css">
+    <script src="../project/scripts/get-dates.js" defer></script>
+    <script src="../project/scripts/script.js"defer></script>
 </head>
 <body>
-    <!-- Header will be loaded here -->
-    <div id="header-placeholder"></div>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Oner Express Ug</h1>
+            </div>
+            <nav>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <!-- Main Content -->
-    <main class="container">
+    <main>
         <section class="hero">
-            <h1>Biggest Sale of the Season!</h1>
-            <p>Discover amazing deals on electronics, fashion, home appliances and more. Shop now and save big!</p>
-            <a href="products.html" class="cta-button">Shop Now</a>
+            <div class="hero-content">
+                <h2>Your Gateway to Online Markets in Uganda</h2>
+                <p>Discover the best deals, affiliate products, and e-commerce opportunities</p>
+                <button class="cta-button">Explore Deals</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://picsum.photos/600/400?random=1" alt="Online Shopping Uganda" id="hero-img">
+            </div>
         </section>
-        
-        <h2 class="section-title">Featured Products</h2>
-        <div class="products-grid" id="featured-products">
-            <!-- Featured products will be dynamically inserted here -->
-        </div>
-        
-        <h2 class="section-title">Popular Categories</h2>
-        <div class="categories">
-            <div class="category-card">
-                <div class="category-icon">
-                    <i class="fas fa-mobile-alt"></i>
+
+       
+
+        <section class="dynamic-products">
+            <div class="container">
+                <h2> Products</h2>
+                <div class="products-grid" id="featured-products">
+                    <!-- Dynamic content will be loaded here -->
                 </div>
-                <h3>Phones & Tablets</h3>
             </div>
-            <div class="category-card">
-                <div class="category-icon">
-                    <i class="fas fa-laptop"></i>
-                </div>
-                <h3>Computers</h3>
-            </div>
-            <div class="category-card">
-                <div class="category-icon">
-                    <i class="fas fa-tshirt"></i>
-                </div>
-                <h3>Fashion</h3>
-            </div>
-            <div class="category-card">
-                <div class="category-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h3>Home & Kitchen</h3>
-            </div>
-            <div class="category-card">
-                <div class="category-icon">
-                    <i class="fas fa-tv"></i>
-                </div>
-                <h3>Electronics</h3>
-            </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Footer will be loaded here -->
-    <div id="footer-placeholder"></div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Oner Express Ug</h3>
+                    <p>Your trusted partner in online markets and affiliate products in Uganda</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        <li><a href="review.html">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Email: info@onerexpressug.com</p>
+                    <p>Phone: +256 700 333 222</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentyear"></span>OnerExpress Ug | Kalungi Isaac, Kampla, UGANDA</p>
+                <p id="lastModified"></p>
+            </div>
+        </div>
+    </footer>
 
-    <script src="scripts/products.js"></script>
-    <script src="scripts/main.js"></script>
-    <script>
-        // Initialize home page specific functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            displayProducts(products.slice(0, 8), 'featured-products');
-        });
-    </script>
+    
 </body>
 </html>
