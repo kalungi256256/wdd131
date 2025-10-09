@@ -104,13 +104,14 @@
                     <h2>Write a Review</h2>
                     <form id="review-form">
                         <div class="form-group">
-                            <label for="review-rating">Rating</label>
-                            <div class="star-rating">
-                                <span data-rating="1">★</span>
-                                <span data-rating="2">★</span>
-                                <span data-rating="3">★</span>
-                                <span data-rating="4">★</span>
-                                <span data-rating="5">★</span>
+                            <!-- label no longer uses `for` because the rating is built from custom radio-like elements -->
+                            <label id="review-rating-label">Rating</label>
+                            <div class="star-rating" role="radiogroup" aria-labelledby="review-rating-label">
+                                <span role="radio" tabindex="0" aria-checked="false" data-rating="1">★</span>
+                                <span role="radio" tabindex="0" aria-checked="false" data-rating="2">★</span>
+                                <span role="radio" tabindex="0" aria-checked="false" data-rating="3">★</span>
+                                <span role="radio" tabindex="0" aria-checked="false" data-rating="4">★</span>
+                                <span role="radio" tabindex="0" aria-checked="false" data-rating="5">★</span>
                             </div>
                         </div>
                         <div class="form-group">
