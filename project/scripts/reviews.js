@@ -528,8 +528,10 @@ function addReviewStyles() {
         }
         
         .review-card.new-review {
-            border: 2px solid #4CAF50;
-            background: linear-gradient(135deg, #f8fff8, #ffffff);
+            border: 2px #4CAF50;
+            margin: 1.2rem;
+            justify-content: center;
+            
         }
         
         .new-badge {
@@ -607,6 +609,11 @@ function addReviewStyles() {
             border-color: var(--primary);
             box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.1);
         }
+            footer{
+            background-color:palegrey}
+
+            header{
+            background-color:white}
     `;
     document.head.appendChild(style);
 }

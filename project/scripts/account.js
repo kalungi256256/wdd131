@@ -300,7 +300,7 @@ function loadOrderHistory() {
                 <div class="no-orders-icon">📦</div>
                 <h3>No orders yet</h3>
                 <p>Start shopping to see your order history here!</p>
-                <a href="products.html" class="shop-now-btn">Start Shopping</a>
+                <a href="products.html" class="shop-now-btn">Explore Our more exciting deals😍</a>
             </div>
         `;
         return;
@@ -526,7 +526,9 @@ function addAccountStyles() {
         .feature-icon {
             font-size: 1.5rem;
         }
-        
+        header{
+            color:solid white}
+            
         .no-orders {
             text-align: center;
             padding: 3rem;

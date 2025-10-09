@@ -17,7 +17,7 @@ body {
 
 /* Header */
 header {
-    background: rgb(12, 29, 29);
+    background: #fff;
     color: #ffffff; /* fixed contrast */
     padding: 2rem 1rem;
     text-align: center;

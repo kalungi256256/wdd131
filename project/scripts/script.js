@@ -3,7 +3,7 @@ let allProducts = [];
 let currentRating = 0;
 
 // DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded - initializing page');
     initializePage();
     setupEventListeners();
@@ -38,7 +38,7 @@ function setupEventListeners() {
     const navLinks = document.getElementById('nav-links');
 
     if (hamburger && navLinks) {
-        hamburger.addEventListener('click', function () {
+        hamburger.addEventListener('click', function() {
             navLinks.classList.toggle('active');
         });
     }
@@ -46,7 +46,7 @@ function setupEventListeners() {
     // Explore Deals button - Redirect to products page
     const exploreButton = document.querySelector('.cta-button');
     if (exploreButton) {
-        exploreButton.addEventListener('click', function () {
+        exploreButton.addEventListener('click', function() {
             console.log('Explore button clicked - redirecting to products page');
             window.location.href = 'products.html';
         });
@@ -55,7 +55,7 @@ function setupEventListeners() {
     // Account tab switching
     const tabButtons = document.querySelectorAll('.tab-button');
     tabButtons.forEach(button => {
-        button.addEventListener('click', function () {
+        button.addEventListener('click', function() {
             const tabId = this.getAttribute('data-tab');
             switchTab(tabId);
         });
@@ -64,18 +64,18 @@ function setupEventListeners() {
     // Star rating for reviews
     const starRatings = document.querySelectorAll('.star-rating span');
     starRatings.forEach(star => {
-        star.addEventListener('click', function () {
+        star.addEventListener('click', function() {
             const rating = parseInt(this.getAttribute('data-rating'));
             currentRating = rating;
             setStarRating(this.parentElement, rating);
         });
 
-        star.addEventListener('mouseover', function () {
+        star.addEventListener('mouseover', function() {
             const rating = parseInt(this.getAttribute('data-rating'));
             highlightStars(this.parentElement, rating);
         });
 
-        star.addEventListener('mouseout', function () {
+        star.addEventListener('mouseout', function() {
             setStarRating(this.parentElement, currentRating);
         });
     });
@@ -113,7 +113,7 @@ function initializeHomePage() {
 function initializeProductsPage() {
     console.log('Initializing products page');
     generateProducts();
-    displayAllProducts(); 
+    displayAllProducts();
 }
 
 function initializeAccountPage() {
@@ -130,8 +130,7 @@ function generateProducts() {
     console.log('Generating products...');
 
     // Fixed products array with consistent categories and unique IDs
-    const products = [
-        {
+    const products = [{
             id: 1,
             name: 'Smartphone X1',
             price: '299.99',
@@ -208,16 +207,16 @@ function generateProducts() {
             name: 'Classic T-Shirt',
             price: '29.99',
             category: 'fashion',
-            image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop',
+            image: 'https://images.unsplash.com/photo-1562247879-0eac107b7e76?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmVhY2glMjB3ZWFyJTIwc2hpcnRzfGVufDB8fDB8fHww',
             rating: '4.2',
             description: 'Premium quality designer t-shirt'
         },
         {
             id: 10,
-            name: 'Summer Dress',
+            name: 'Summer Dress 🔥',
             price: '49.99',
             category: 'fashion',
-            image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=300&fit=crop',
+            image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             rating: '4.5',
             description: 'Elegant summer dress for all occasions'
         },
@@ -298,7 +297,7 @@ function generateProducts() {
             name: 'Kitchen Set',
             price: '129.99',
             category: 'home',
-            image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop',
+            image: 'https://images.unsplash.com/photo-1636412191749-53d84f5f3eb0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8a25pdmVzfGVufDB8fDB8fHww',
             rating: '4.7',
             description: 'Complete kitchen utensil set'
         },
@@ -361,17 +360,36 @@ function generateProducts() {
             name: 'Nail Polish Set',
             price: '22.99',
             category: 'beauty',
-            image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=300&fit=crop',
+            image: 'https://images.unsplash.com/photo-1652869120339-57593908574b?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             rating: '4.2',
             description: 'Colorful nail polish collection'
+        },
+        {
+            id: 27,
+            name: 'samsung Fold',
+            price: 200,
+            category: 'electronics',
+            image: 'https://images.unsplash.com/photo-1568378711447-f5eef04d85b5?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            rating: '5.0',
+            description: 'A smartphone that folds'
+
+        },
+        {
+            id: 28,
+            name: 'samsung s24 ultra 🔥',
+            price: 150,
+            category: 'electronics',
+            image: 'https://images.unsplash.com/photo-1656758211329-5e142274bb59?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            rating: '4.8',
+            description: 'The best smartphone ever'
         }
+
     ];
 
     allProducts = products;
     console.log('Products generated:', allProducts.length);
 }
 
-// Display ALL products on the page at once
 function displayAllProducts() {
     const productsContainer = document.getElementById('products-container');
     if (!productsContainer) {
@@ -388,7 +406,6 @@ function displayAllProducts() {
         productsContainer.appendChild(productCard);
     });
 
-    // Hide the load more container
     const loadMoreContainer = document.querySelector('.load-more-container');
     if (loadMoreContainer) {
         loadMoreContainer.style.display = 'none';
@@ -452,7 +469,7 @@ function loadFeaturedProducts() {
         generateProducts();
     }
 
-    const featuredProducts = allProducts.slice(0, 6); // Show first 6 as featured
+    const featuredProducts = allProducts.slice(0, 8); // Show first 6 as featured
 
     console.log('Loading featured products:', featuredProducts.length);
 
@@ -464,15 +481,18 @@ function loadFeaturedProducts() {
     });
 }
 
-// Update hero image with random Unsplash image
+// Update hero image with random image
 function updateHeroImage() {
     const heroImg = document.getElementById('hero-img');
     if (heroImg) {
         const images = [
+            'https://images.unsplash.com/photo-1647884866497-0bacd3f9e388?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTI3fHxibGFjayUyMGhhcHB5JTIwY3VzdG9tZXJzfGVufDB8fDB8fHww',
+            'https://plus.unsplash.com/premium_photo-1661644811580-66dda7979244?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzl8fGhhcHB5JTIwY3VzdG9tZXJzfGVufDB8fDB8fHww',
+            'https://images.unsplash.com/photo-1752070182361-9fa562ed7f97?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=600&h=400&fit=crop'
+
         ];
         const randomImage = images[Math.floor(Math.random() * images.length)];
         heroImg.src = randomImage;
@@ -588,101 +608,6 @@ function setStarRating(container, rating) {
     });
 }
 
-// Highlight stars on hover
-function highlightStars(container, rating) {
-    const stars = container.querySelectorAll('span');
-    stars.forEach((star, index) => {
-        if (index < rating) {
-            star.style.color = '#FFD700';
-        } else {
-            star.style.color = '#E0E0E0';
-        }
-    });
-}
-
-// Load reviews
-function loadReviews() {
-    const reviewsContainer = document.getElementById('reviews-container');
-    if (!reviewsContainer) return;
-
-    const reviews = [
-        {
-            author: 'Sarah M.',
-            date: '2024-01-20',
-            rating: 5,
-            title: 'Excellent Service!',
-            content: 'The products are amazing and delivery was super fast. Will definitely shop again!',
-            verified: true
-        },
-        {
-            author: 'John D.',
-            date: '2024-01-18',
-            rating: 4,
-            title: 'Great Quality',
-            content: 'Good products at reasonable prices. Customer service was helpful.',
-            verified: true
-        },
-        {
-            author: 'Grace K.',
-            date: '2024-01-15',
-            rating: 5,
-            title: 'Love It!',
-            content: 'Everything was perfect from ordering to delivery. Highly recommended!',
-            verified: false
-        },
-        {
-            author: 'Mike T.',
-            date: '2024-01-12',
-            rating: 4,
-            title: 'Satisfied Customer',
-            content: 'Good experience overall. Products met my expectations.',
-            verified: true
-        }
-    ];
-
-    reviewsContainer.innerHTML = '';
-
-    reviews.forEach(review => {
-        const reviewCard = document.createElement('div');
-        reviewCard.className = 'review-card';
-        reviewCard.innerHTML = `
-            <div class="review-header">
-                <div class="review-author">
-                    ${review.author}
-                    ${review.verified ? '<span class="verified">✓ Verified</span>' : ''}
-                </div>
-                <div class="review-date">${review.date}</div>
-            </div>
-            <div class="review-rating">
-                ${generateStarRating(review.rating)}
-            </div>
-            <h3 class="review-title">${review.title}</h3>
-            <p class="review-content">${review.content}</p>
-        `;
-        reviewsContainer.appendChild(reviewCard);
-    });
-}
-
-// Handle review submission
-function handleReviewSubmit(event) {
-    event.preventDefault();
-
-    const title = document.getElementById('review-title').value;
-    const content = document.getElementById('review-content').value;
-
-    if (!title || !content || currentRating === 0) {
-        alert('Please fill in all fields and select a rating.');
-        return;
-    }
-
-    alert('Thank you for your review!');
-
-    // Reset form
-    document.getElementById('review-form').reset();
-    currentRating = 0;
-    setStarRating(document.querySelector('.star-rating'), 0);
-}
-
 // Add to cart function
 function addToCart(productId) {
     const product = allProducts.find(p => p.id === productId);
@@ -691,11 +616,8 @@ function addToCart(productId) {
     }
 }
 
-// Set footer content
-document.getElementById('copyright-year').textContent = new Date().getFullYear();
-document.getElementById('last-modified').textContent = document.lastModified;
 
-// Make functions globally available
+// Make functions  available
 window.addToCart = addToCart;
 window.filterAndSortProducts = filterAndSortProducts;
 window.switchTab = switchTab;
@@ -703,7 +625,7 @@ window.setStarRating = setStarRating;
 window.highlightStars = highlightStars;
 
 // Initialize when page loads
-window.addEventListener('load', function () {
+window.addEventListener('load', function() {
     console.log('Window loaded - adding dynamic styles');
     // Add some CSS for dynamic elements
     const style = document.createElement('style');
@@ -720,17 +642,17 @@ window.addEventListener('load', function () {
         }
         
         .product-category {
-            color: #666;
+            color: #0a7e8dff;
             font-size: 0.9rem;
             text-transform: capitalize;
         }
         
         .add-to-cart-btn {
-            background-color: var(--primary);
-            color: white;
+            background-color: lightseagreen;
+            color:white;
             border: none;
             padding: 0.5rem 1rem;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
             width: 100%;
             margin-top: 1rem;
@@ -739,7 +661,7 @@ window.addEventListener('load', function () {
         
         .add-to-cart-btn:hover {
             background-color: #1a7fd9;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
         
         .order-item {
@@ -751,6 +673,7 @@ window.addEventListener('load', function () {
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
+            
         }
         
         .order-details {

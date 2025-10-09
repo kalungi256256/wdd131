@@ -1,0 +1,110 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .reviews-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .account-tabs {
+        flex-direction: column;
+    }
+
+    .tab-button {
+        text-align: left;
+        border-bottom: 1px solid var(--light-gray);
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Container for the whole banner area */
+.oner-express-banner {
+  font-family: 'Arial Black', Gadget, sans-serif; /* A bold, strong font */
+  text-align: center;
+  /* Orange Gradient Background matching the image */
+  background: linear-gradient(180deg, #ff9933 0%, #ff7043 100%);
+  padding: 30px 20px;
+  border-radius: 12px;
+  margin: 30px auto;
+  max-width: 650px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Deep shadow for lift */
+}
+
+/* Style for the main, large WELCOME text */
+.oner-express-banner .main-heading {
+  font-size: 40px;
+  color: #337ab7; /* Bright Blue */
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.1;
+  /* Key to the 3D/Shadow Effect */
+  text-shadow: 
+    -2px -2px 0 #fff,  /* Top-left white border */
+    2px 2px 0 #000;    /* Bottom-right black shadow */
+}
+
+/* Style for the inline emojis (🌟 🛍️) */
+.oner-express-banner .emoji {
+  font-size: 30px; /* Adjust size relative to the heading */
+  display: none; /* Hide for professionalism, but keep for flair */
+  vertical-align: middle;
+}
+
+/* Style for the smaller descriptive text */
+.oner-express-banner .subtitle {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 15px;
+  font-size: 18px;
+  color: #ffffff; /* White text for high contrast */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
