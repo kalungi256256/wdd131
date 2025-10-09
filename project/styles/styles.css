@@ -161,6 +161,79 @@ header {
 }
 
 
+/* Global button styles */
+
+.btn-reset {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.18s ease;
+    font-weight: 700;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.18);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+    border-color: rgba(0, 0, 0, 0.02);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--light-gray);
+}
+
+.load-more-btn,
+.save-btn,
+.submit-review-btn {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.load-more-btn {
+    background: #fff;
+    border: 1px solid var(--light-gray);
+    color: var(--primary);
+}
+
+.load-more-btn:hover {
+    box-shadow: 0 8px 20px rgba(30, 144, 255, 0.06);
+}
+
+
+/* Small icon button */
+
+.btn-icon {
+    padding: 0.4rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+
 /* Features Section */
 
 .features {
@@ -269,6 +342,107 @@ header {
 
 .account-section {
     padding: 3rem 0;
+}
+
+
+/* Calculator section styles */
+
+.calculator-section {
+    background: var(--white);
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    color: var(--text);
+}
+
+.calculator-section h2 {
+    margin-bottom: 1rem;
+    color: var(--primary);
+    font-family: 'Merriweather', serif;
+}
+
+.calculator-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+.calculator-form .form-row {
+    display: contents;
+    /* allow grid placement */
+}
+
+.calculator-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+.calculator-form input,
+.calculator-form select,
+.calculator-form textarea {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: #fff;
+}
+
+.calculator-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.calculator-actions .btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.calculator-actions .btn-primary {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(30, 144, 255, 0.12);
+}
+
+.calculator-actions .btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--light-gray);
+}
+
+.calculator-result {
+    grid-column: 1 / -1;
+    background: var(--background);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 0.75rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.calculator-result .amount {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1a7f3a;
+    /* green accent */
+}
+
+@media (max-width: 800px) {
+    .calculator-form {
+        grid-template-columns: 1fr;
+    }
+    .calculator-actions {
+        flex-direction: column;
+    }
 }
 
 .account-tabs {
