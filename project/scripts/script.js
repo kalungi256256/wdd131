@@ -129,7 +129,7 @@ function initializeReviewPage() {
 function generateProducts() {
     console.log('Generating products...');
 
-    // Fixed products array with consistent categories and unique IDs
+    //products array
     const products = [{
             id: 1,
             name: 'Smartphone X1',

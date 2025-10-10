@@ -636,6 +636,15 @@ main {
     font-size: 0.9rem;
 }
 
+.calc {
+    background-color: var(--primary);
+    margin: 1.5rem;
+    border: solid;
+    font-size: larger;
+    border-radius: 20px;
+    color: #E2ECF2;
+}
+
 
 /* Footer */
 
