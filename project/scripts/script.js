@@ -382,8 +382,17 @@ function generateProducts() {
             image: 'https://images.unsplash.com/photo-1656758211329-5e142274bb59?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             rating: '4.8',
             description: 'The best smartphone ever'
-        }
+        },
+        {
+            id: 29,
+            name: 'iPhone 15 Pro Max',
+            price: 180,
+            category: 'electronics',
+            image: 'https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aXBob25lfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500',
+            rating: '4.9',
+            description: 'The latest iPhone model with advanced features'
 
+        }
     ];
 
     allProducts = products;
@@ -490,7 +499,6 @@ function updateHeroImage() {
             'https://plus.unsplash.com/premium_photo-1661644811580-66dda7979244?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzl8fGhhcHB5JTIwY3VzdG9tZXJzfGVufDB8fDB8fHww',
             'https://images.unsplash.com/photo-1752070182361-9fa562ed7f97?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
             'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop',
 
         ];
@@ -648,7 +656,6 @@ window.addEventListener('load', function() {
         }
         
         .add-to-cart-btn {
-            background-color: lightseagreen;
             color:white;
             border: none;
             padding: 0.5rem 1rem;
@@ -657,6 +664,7 @@ window.addEventListener('load', function() {
             width: 100%;
             margin-top: 1rem;
             transition: all 0.3s ease;
+            jusify-content: center;
         }
         
         .add-to-cart-btn:hover {
