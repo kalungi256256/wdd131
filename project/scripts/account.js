@@ -1,5 +1,5 @@
 // DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded - initializing account page');
     initializeAccountPage();
     setupAccountEventListeners();
@@ -18,7 +18,7 @@ function initializeAccountPage() {
 function checkUserRegistration() {
     const userProfile = JSON.parse(localStorage.getItem('userProfile'));
     const isNewUser = !userProfile;
-    
+
     if (isNewUser) {
         showRegistrationWelcome();
     } else {
@@ -33,7 +33,7 @@ function setupAccountEventListeners() {
     const navLinks = document.getElementById('nav-links');
 
     if (hamburger && navLinks) {
-        hamburger.addEventListener('click', function () {
+        hamburger.addEventListener('click', function() {
             navLinks.classList.toggle('active');
         });
     }
@@ -41,11 +41,17 @@ function setupAccountEventListeners() {
     // Account tab switching
     const tabButtons = document.querySelectorAll('.tab-button');
     tabButtons.forEach(button => {
-        button.addEventListener('click', function () {
+        button.addEventListener('click', function() {
             const tabId = this.getAttribute('data-tab');
             switchTab(tabId);
         });
     });
+
+    // Ensure the Profile tab is active on initial load so its content (calculator) is visible
+    if (document.querySelector('[data-tab="profile"]')) {
+        // Defensive: call switchTab only if the profile tab button exists
+        switchTab('profile');
+    }
 
     // Profile form submission (Registration/Sign Up)
     const profileForm = document.getElementById('profile-form');
@@ -95,7 +101,7 @@ function handleUserRegistration(event) {
 
     // Save to localStorage
     localStorage.setItem('userProfile', JSON.stringify(userProfile));
-    
+
     // Create empty orders array if it doesn't exist
     if (!localStorage.getItem('userOrders')) {
         localStorage.setItem('userOrders', JSON.stringify([]));
@@ -103,7 +109,7 @@ function handleUserRegistration(event) {
 
     // Show registration success message
     showRegistrationSuccess(userProfile);
-    
+
     console.log('User registered successfully:', userProfile);
 }
 
@@ -139,7 +145,7 @@ function showRegistrationWelcome() {
 
 // Show registration success message
 function showRegistrationSuccess(userProfile) {
-    showMessage('success', 
+    showMessage('success',
         `🎉 Welcome to the Oner Express Ug family, ${userProfile.name}!\n\n` +
         `Your account has been successfully created!\n\n` +
         `📧 <strong>Email:</strong> ${userProfile.email}\n` +
@@ -157,7 +163,7 @@ function showRegistrationSuccess(userProfile) {
 
 // Show welcome back message for returning users
 function showWelcomeBackMessage(userName) {
-    showMessage('info', 
+    showMessage('info',
         `👋 Welcome back, ${userName}!\n\n` +
         `Great to see you again. Ready to continue shopping?`
     );
@@ -223,7 +229,7 @@ function handleProfileUpdate(event) {
     // Save to localStorage
     localStorage.setItem('userProfile', JSON.stringify(userProfile));
 
-    showMessage('success', 
+    showMessage('success',
         `✅ Profile updated successfully!\n\n` +
         `Your account information has been saved.`
     );
@@ -244,7 +250,7 @@ function loadUserProfile() {
 
         // Update UI for registered user
         updateUIForRegisteredUser(userProfile.name);
-        
+
         console.log('User profile loaded:', userProfile);
     } else {
         // Set up for new registration
@@ -261,32 +267,31 @@ function loadOrderHistory() {
     if (!ordersList) return;
 
     // Get orders from localStorage or use sample data
-    const orders = JSON.parse(localStorage.getItem('userOrders')) || [
-        { 
-            id: 'ORD-001', 
-            date: '2024-01-15', 
-            total: '$149.99', 
+    const orders = JSON.parse(localStorage.getItem('userOrders')) || [{
+            id: 'ORD-001',
+            date: '2024-01-15',
+            total: '$149.99',
             status: 'Delivered',
             items: ['Smartphone X1', 'Wireless Headphones']
         },
-        { 
-            id: 'ORD-002', 
-            date: '2024-01-10', 
-            total: '$89.50', 
+        {
+            id: 'ORD-002',
+            date: '2024-01-10',
+            total: '$89.50',
             status: 'Delivered',
             items: ['Summer Dress']
         },
-        { 
-            id: 'ORD-003', 
-            date: '2024-01-05', 
-            total: '$234.75', 
+        {
+            id: 'ORD-003',
+            date: '2024-01-05',
+            total: '$234.75',
             status: 'Processing',
             items: ['Laptop Pro', 'Smart Watch']
         },
-        { 
-            id: 'ORD-004', 
-            date: '2023-12-28', 
-            total: '$67.25', 
+        {
+            id: 'ORD-004',
+            date: '2023-12-28',
+            total: '$67.25',
             status: 'Delivered',
             items: ['Skincare Set']
         }
@@ -351,10 +356,10 @@ function handleSettingChange(event) {
 
     const settings = JSON.parse(localStorage.getItem('userSettings')) || {};
     settings[settingName] = isEnabled;
-    
+
     localStorage.setItem('userSettings', JSON.stringify(settings));
 
-    showMessage('success', 
+    showMessage('success',
         `${settingName.charAt(0).toUpperCase() + settingName.slice(1)} ${isEnabled ? 'enabled' : 'disabled'} successfully!`
     );
 }
@@ -378,7 +383,7 @@ function switchTab(tabId) {
 function viewOrderDetails(orderId) {
     const orders = JSON.parse(localStorage.getItem('userOrders')) || [];
     const order = orders.find(o => o.id === orderId);
-    
+
     if (order) {
         alert(`Order Details:\n\nID: ${order.id}\nDate: ${order.date}\nTotal: ${order.total}\nStatus: ${order.status}\nItems: ${order.items.join(', ')}`);
     }
@@ -658,7 +663,7 @@ function addAccountStyles() {
 }
 
 // Initialize styles when page loads
-window.addEventListener('load', function () {
+window.addEventListener('load', function() {
     console.log('Window loaded - adding account styles');
     addAccountStyles();
 });

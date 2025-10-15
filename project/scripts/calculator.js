@@ -11,23 +11,33 @@ const services = [
 function loadUserData() {
     const savedName = localStorage.getItem('userName');
     if (savedName) {
-        document.getElementById('welcomeMessage').textContent = `Welcome back, ${savedName}!`;
+        const welcomeEl = document.getElementById('welcomeMessage');
+        if (welcomeEl) welcomeEl.textContent = `Welcome back, ${savedName}!`;
     }
 }
 
 // Multiple Functions (Criteria 9)
 function calculateInvestment() {
-    const amount = parseFloat(document.getElementById('investmentAmount').value);
-    const years = parseInt(document.getElementById('investmentYears').value);
+    const amountEl = document.getElementById('investmentAmount');
+    const yearsEl = document.getElementById('investmentYears');
+    const amount = amountEl ? parseFloat(amountEl.value) : NaN;
+    const years = yearsEl ? parseInt(yearsEl.value) : NaN;
 
     // Conditional Branching (Criteria 11)
     if (!amount || !years || amount <= 0 || years <= 0) {
-        showError("Please enter valid numbers");
+        showError("Please enter valid positive numbers for amount and years.");
+        // focus the first invalid field
+        if (!amount || amount <= 0) {
+            amountEl && amountEl.focus();
+        } else if (!years || years <= 0) {
+            yearsEl && yearsEl.focus();
+        }
         return;
     }
 
     // DOM Manipulation (Criteria 10)
     const resultElement = document.getElementById('investmentResult');
+    if (!resultElement) return;
     const growth = amount * Math.pow(1.07, years); // 7% annual growth
 
     // Template Literal (Criteria 14)
@@ -44,8 +54,9 @@ function calculateInvestment() {
 
 function showError(message) {
     const errorElement = document.getElementById('errorMessage');
+    if (!errorElement) return;
     errorElement.textContent = message;
-    setTimeout(() => { errorElement.textContent = ''; }, 3000);
+    setTimeout(() => { if (errorElement) errorElement.textContent = ''; }, 4000);
 }
 
 function updateServiceRecommendations(amount) {
@@ -63,10 +74,18 @@ function updateServiceRecommendations(amount) {
 }
 
 function saveUserInfo() {
-    const userName = document.getElementById('userName').value;
+    const userNameEl = document.getElementById('userName');
+    if (!userNameEl) return;
+    const userName = userNameEl.value.trim();
     if (userName) {
         localStorage.setItem('userName', userName);
-        document.getElementById('welcomeMessage').textContent = `Welcome, ${userName}!`;
+        const welcomeEl = document.getElementById('welcomeMessage');
+        if (welcomeEl) welcomeEl.textContent = `Welcome, ${userName}!`;
+        // small confirm UI
+        const old = userNameEl.value;
+        userNameEl.blur();
+        userNameEl.classList.add('saved');
+        setTimeout(() => userNameEl.classList.remove('saved'), 800);
     }
 }
 
@@ -74,9 +93,14 @@ function saveUserInfo() {
 document.addEventListener('DOMContentLoaded', function() {
     loadUserData();
 
-    // DOM event listening (Criteria 10)
-    document.getElementById('calculateBtn').addEventListener('click', calculateInvestment);
-    document.getElementById('saveUserBtn').addEventListener('click', saveUserInfo);
+    // DOM event listening (defensive)
+    const calcBtn = document.getElementById('calculateBtn');
+    if (calcBtn) calcBtn.addEventListener('click', calculateInvestment);
 
-    console.log("Financial calculator loaded successfully");
+    const saveBtn = document.getElementById('saveUserBtn');
+    if (saveBtn) saveBtn.addEventListener('click', saveUserInfo);
+
+    // If the page doesn't have a calculator, none of the above will run and no errors will be thrown.
+
+    console.log("Financial calculator initialization complete");
 });

@@ -3,7 +3,7 @@ let allProducts = [];
 let currentRating = 0;
 
 // DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded - initializing review page');
     initializeReviewPage();
     setupReviewEventListeners();
@@ -24,27 +24,80 @@ function setupReviewEventListeners() {
     const navLinks = document.getElementById('nav-links');
 
     if (hamburger && navLinks) {
-        hamburger.addEventListener('click', function () {
+        hamburger.addEventListener('click', function() {
             navLinks.classList.toggle('active');
         });
     }
 
     // Star rating for reviews
+    // ensure there is a hidden input to hold the numeric rating for form submission
+    const formEl = document.getElementById('review-form');
+    if (formEl && !document.getElementById('review-rating')) {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'review-rating';
+        hidden.name = 'rating';
+        hidden.value = '0';
+        formEl.appendChild(hidden);
+    }
+
     const starRatings = document.querySelectorAll('.star-rating span');
+    // Initialize ARIA roles and tabindex for star widgets
+    const starContainers = document.querySelectorAll('.star-rating');
+    starContainers.forEach(container => {
+        container.setAttribute('role', 'radiogroup');
+        const label = document.getElementById('review-rating-label');
+        if (label && !container.getAttribute('aria-labelledby')) {
+            container.setAttribute('aria-labelledby', 'review-rating-label');
+        }
+        const starsIn = container.querySelectorAll('span');
+        starsIn.forEach(st => {
+            st.setAttribute('role', 'radio');
+            st.setAttribute('tabindex', '0');
+            st.setAttribute('aria-checked', 'false');
+        });
+    });
     starRatings.forEach(star => {
-        star.addEventListener('click', function () {
+        // click/tap selects rating
+        star.addEventListener('click', function() {
             const rating = parseInt(this.getAttribute('data-rating'));
             currentRating = rating;
             setStarRating(this.parentElement, rating);
+            updateHiddenRating(rating);
         });
 
-        star.addEventListener('mouseover', function () {
+        // hover highlights (visual only)
+        star.addEventListener('mouseover', function() {
             const rating = parseInt(this.getAttribute('data-rating'));
             highlightStars(this.parentElement, rating);
         });
 
-        star.addEventListener('mouseout', function () {
+        star.addEventListener('mouseout', function() {
             setStarRating(this.parentElement, currentRating);
+        });
+
+        // keyboard support: Enter/Space to select, arrows to move
+        star.addEventListener('keydown', function(e) {
+            const key = e.key;
+            const parent = this.parentElement;
+            const rating = parseInt(this.getAttribute('data-rating'));
+            if (key === 'Enter' || key === ' ') {
+                e.preventDefault();
+                currentRating = rating;
+                setStarRating(parent, rating);
+                updateHiddenRating(rating);
+                this.setAttribute('aria-checked', 'true');
+            } else if (key === 'ArrowRight' || key === 'ArrowUp') {
+                e.preventDefault();
+                const nextRating = Math.min(5, rating + 1);
+                const nextStar = parent.querySelector(`[data-rating="${nextRating}"]`);
+                if (nextStar) { nextStar.focus(); }
+            } else if (key === 'ArrowLeft' || key === 'ArrowDown') {
+                e.preventDefault();
+                const prevRating = Math.max(1, rating - 1);
+                const prevStar = parent.querySelector(`[data-rating="${prevRating}"]`);
+                if (prevStar) { prevStar.focus(); }
+            }
         });
     });
 
@@ -95,7 +148,7 @@ function createProductDropdown() {
     // Insert name field after rating
     const ratingGroup = document.querySelector('.form-group');
     ratingGroup.parentNode.insertBefore(nameGroup, ratingGroup.nextSibling);
-    
+
     // Insert product dropdown after name field
     nameGroup.parentNode.insertBefore(productGroup, nameGroup.nextSibling);
 
@@ -127,8 +180,7 @@ function populateProductDropdown(selectElement) {
 function generateProducts() {
     console.log('Generating products for reviews...');
 
-    const products = [
-        {
+    const products = [{
             id: 1,
             name: 'Smartphone X1',
             price: '299.99',
@@ -265,7 +317,7 @@ function handleReviewSubmit(event) {
     saveReviewToStorage(newReview);
 
     // Show success message with appreciation
-    showAppreciationMessage('success', 
+    showAppreciationMessage('success',
         `Thank you so much, ${reviewerName}! 🌟\n\n` +
         `We truly appreciate you taking the time to review "${selectedProduct.name}". ` +
         `Your detailed feedback is incredibly valuable to us and helps other customers make informed decisions.\n\n` +
@@ -274,7 +326,7 @@ function handleReviewSubmit(event) {
 
     // Reset form
     resetReviewForm();
-    
+
     // Reload reviews to show the new one
     setTimeout(() => {
         loadReviews();
@@ -328,10 +380,9 @@ function loadReviews() {
 
     // Get user reviews from localStorage
     const userReviews = JSON.parse(localStorage.getItem('userReviews')) || [];
-    
+
     // Sample reviews (fallback)
-    const sampleReviews = [
-        {
+    const sampleReviews = [{
             author: 'Museven Yoweri.',
             date: '2024-01-20',
             rating: 5,
@@ -410,7 +461,7 @@ function updateReviewStats() {
     if (allReviews.length > 0) {
         const totalRating = allReviews.reduce((sum, review) => sum + review.rating, 0);
         const averageRating = (totalRating / allReviews.length).toFixed(1);
-        
+
         // Update overall rating display
         const averageRatingElement = document.querySelector('.rating-value');
         if (averageRatingElement) {
@@ -441,11 +492,18 @@ function generateStarRating(rating) {
 // Set star rating
 function setStarRating(container, rating) {
     const stars = container.querySelectorAll('span');
-    stars.forEach((star, index) => {
-        if (index < rating) {
+    stars.forEach((star) => {
+        const r = parseInt(star.getAttribute('data-rating'));
+        if (r <= rating) {
             star.classList.add('active');
+            star.setAttribute('aria-checked', 'true');
+            // selected element should be focusable
+            star.setAttribute('tabindex', '0');
         } else {
             star.classList.remove('active');
+            star.setAttribute('aria-checked', 'false');
+            // non-selected radios should be focusable too but prefer -1 so screen readers move predictably
+            star.setAttribute('tabindex', '-1');
         }
     });
 }
@@ -453,11 +511,12 @@ function setStarRating(container, rating) {
 // Highlight stars on hover
 function highlightStars(container, rating) {
     const stars = container.querySelectorAll('span');
-    stars.forEach((star, index) => {
-        if (index < rating) {
-            star.style.color = '#FFD700';
+    stars.forEach((star) => {
+        const r = parseInt(star.getAttribute('data-rating'));
+        if (r <= rating) {
+            star.classList.add('highlight');
         } else {
-            star.style.color = '#E0E0E0';
+            star.classList.remove('highlight');
         }
     });
 }
@@ -466,13 +525,24 @@ function highlightStars(container, rating) {
 function resetReviewForm() {
     document.getElementById('review-form').reset();
     currentRating = 0;
-    setStarRating(document.querySelector('.star-rating'), 0);
-    
-    // Reset star colors
+    const starContainer = document.querySelector('.star-rating');
+    if (starContainer) setStarRating(starContainer, 0);
+    // Reset hidden input
+    const hidden = document.getElementById('review-rating');
+    if (hidden) hidden.value = '0';
+    // Reset visual classes
     const stars = document.querySelectorAll('.star-rating span');
     stars.forEach(star => {
-        star.style.color = '';
+        star.classList.remove('highlight');
+        star.classList.remove('active');
+        star.setAttribute('aria-checked', 'false');
+        star.setAttribute('tabindex', '0');
     });
+}
+
+function updateHiddenRating(value) {
+    const hidden = document.getElementById('review-rating');
+    if (hidden) hidden.value = String(value);
 }
 
 // Add CSS for appreciation messages and new features
@@ -566,8 +636,15 @@ function addReviewStyles() {
         }
         
         .star-rating span.active,
+        .star-rating span.highlight,
         .star-rating span:hover {
             color: #FFD700;
+        }
+
+        .star-rating span:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(255,215,0,0.12);
+            border-radius: 4px;
         }
         
         @keyframes slideIn {
@@ -619,7 +696,7 @@ function addReviewStyles() {
 }
 
 // Initialize styles when page loads
-window.addEventListener('load', function () {
+window.addEventListener('load', function() {
     console.log('Window loaded - adding review styles');
     addReviewStyles();
 });
